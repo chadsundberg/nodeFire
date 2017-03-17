@@ -16,7 +16,44 @@ app.controller("SampleCtrl", function($firebaseAuth, $http) {
   // e.g. whevenever the user logs in or logs out
   // this is where we put most of our logic so that we don't duplicate
   // the same things in the login and the logout code
-  auth.$onAuthStateChanged(function(firebaseUser){
+  auth.$onAuthStateChanged(getAllSecretsAtCorrectLevel);
+  auth.$onAuthStateChanged(function(firebaseUser) {
+    // if the user is logged in, firebaseUser will be some object (truthy),
+    // if the user is not logged in, firebaseUser is null (falsey)
+    // the first ! flips it and makes it just true or false
+    // self.userIsLoggedIn = !!firebaseUser;
+
+    // Check directly if firebaseUser is null
+    self.userIsLoggedIn = firebaseUser != null;
+  });
+
+  auth.$onAuthStateChanged(function(firebaseUser) {
+
+    if (firebaseUser) {
+      // make request for clearance level
+      // This is where we make our call to our server
+      firebaseUser.getToken().then(function(idToken){
+        $http({
+          method: 'GET',
+          url: '/privateData/userClearanceLevel',
+          headers: {
+            id_token: idToken
+          }
+        }).then(function(response){
+          var userClearanceLevel = response.data.userClearanceLevel;
+          self.secrecyLevelOptions = [];
+          for (var i = 1; i <= userClearanceLevel; i++) {
+            self.secrecyLevelOptions.push(i);
+          }
+        });
+      });
+    } else {
+      self.secrecyLevelOptions = [];
+    }
+
+  });
+
+  function getAllSecretsAtCorrectLevel(firebaseUser){
     // firebaseUser will be null if not logged in
     if(firebaseUser) {
       // This is where we make our call to our server
@@ -36,7 +73,30 @@ app.controller("SampleCtrl", function($firebaseAuth, $http) {
       self.secretData = [];
     }
 
-  });
+  }
+
+  self.addNewSecret = function(newSecretObject) {
+    var firebaseUser = auth.$getAuth(); // quick way after user is logged in to get current firebase user
+
+    // firebaseUser will be null if not logged in
+    if(firebaseUser) {
+      // This is where we make our call to our server
+      firebaseUser.getToken().then(function(idToken){
+        $http({
+          method: 'POST',
+          url: '/privateData',
+          data: newSecretObject,
+          headers: {
+            id_token: idToken
+          }
+        }).then(function(response){
+          getAllSecretsAtCorrectLevel(firebaseUser);
+        });
+      });
+    } else {
+      console.log('Can not post to database when not logged in.');
+    }
+  }
 
   // This code runs when the user logs out
   self.logOut = function(){
