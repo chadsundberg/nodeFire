@@ -2,9 +2,12 @@
 <html ng-app="sampleApp">
   <head>
     <meta charset="utf-8">
-    <title>nodeFire with Authentication</title>
+    <title>Ourdate Application</title>
     <!-- AngularJS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <link rel="stylesheet" href="/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script type="text/javascript" src="/vendor/angular.min.js"></script>
+    <script type="text/javascript" src="/vendor/angular-route.min.js"></script>
 
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
@@ -17,9 +20,11 @@
 
     <!-- Angular Application with Authentication -->
     <script src="scripts/client.js"></script>
+    <!-- <script type="text/javascript" src="/scripts/factories/data.factory.js"></script> -->
+    <!-- <script type="text/javascript" src="/scripts/controllers/home.controller.js"></script> -->
   </head>
   <body ng-controller="SampleCtrl as sc">
-    <h1>Hi! Log in to get some secret data from the server!</h1>
+    <h1>Welcome to Ourdate</h1>
     <button ng-click="sc.logIn()">Log In</button>
     <button ng-click="sc.logOut()">Log Out</button>
     <div>

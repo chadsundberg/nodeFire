@@ -23,7 +23,7 @@ app.controller("SampleCtrl", function($firebaseAuth, $http) {
       firebaseUser.getToken().then(function(idToken){
         $http({
           method: 'GET',
-          url: '/privateData',
+          url: './views/home-view.html',
           headers: {
             id_token: idToken
           }

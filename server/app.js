@@ -4,6 +4,13 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var decoder = require('./modules/decoder');
 var privateData = require('./routes/private-data');
+// var admin = require("firebase-admin");
+// var serviceAccount = require("path/to/serviceAccountKey.json");
+
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount),
+//   databaseURL: "https://ourdate-9f39f.firebaseio.com"
+// });
 
 app.get('/', function(req, res){
   res.sendFile(path.resolve('./public/views/index.html'));
@@ -11,6 +18,7 @@ app.get('/', function(req, res){
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 // Decodes the token in the request header and attaches the decoded token to the request.
 app.use(decoder.token);
