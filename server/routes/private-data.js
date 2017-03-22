@@ -10,7 +10,7 @@ var config = {
 };
 var pool = new pg.Pool(config);
 
-router.get('/ourdates', function(req, res){
+router.get('/', function(req, res){
   console.log(req.decodedToken); // Here you can see the information firebase gives you about the user
   res.send("Our Dates!!! You got it!!! Great work " + req.decodedToken.name + "!!!");
 });

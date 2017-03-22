@@ -1,34 +1,39 @@
 <!DOCTYPE html>
-<html ng-app="sampleApp">
-  <head>
-    <meta charset="utf-8">
-    <title>Ourdate Application</title>
-    <!-- AngularJS -->
-    <link rel="stylesheet" href="/vendor/bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/styles.css" />
-    <script type="text/javascript" src="/vendor/angular.min.js"></script>
-    <script type="text/javascript" src="/vendor/angular-route.min.js"></script>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ourdate Application</title>
+  <!-- AngularJS -->
+  <script type="text/javascript" src="/vendor/angular.min.js"></script>
+  <script type="text/javascript" src="/vendor/angular-route.min.js"></script>
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
+  <!-- AngularFire -->
+  <script src="https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js"></script>
+  <!-- Firebase Config -->
+  <script src="scripts/config.js"></script>
+  <!-- Angular Application with Authentication -->
+  <script src="scripts/client.js"></script>
+  <script type="text/javascript" src="/scripts/factories/data.factory.js"></script>
+  <script type="text/javascript" src="/scripts/controllers/home.controller.js"></script>
+  <script type="text/javascript" src="/scripts/controllers/loginController.js"></script>
+  <link rel="stylesheet" href="/vendor/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<!-- bring in angular app -->
+<body>
+  <main class="container" ng-app="ourdateApp">
+    <!-- login controller is on every page -->
+    <header ng-controller="LoginController as lc">
+        <nav ng-include="'/views/templates/nav.html'"></nav>
+    </header>
+          <!-- <a id = "goHome" href="#main"> <h1 class="five columns">OurDate</h1></a>
+          <a href="#main"><button class="two columns button">Home</button></a> -->
+          <!-- <a href="#profile"><button class="two columns button">Profile</button></a> -->
+          <!-- <p class="two columns" ng-show="lc.displayLogout">Hi {{lc.username}}! | <a id = "logout" href="#" ng-click="lc.logout()">Logout</a></p> -->
 
-    <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
-
-    <!-- AngularFire -->
-    <script src="https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js"></script>
-
-    <!-- Firebase Config -->
-    <script src="scripts/config.js"></script>
-
-    <!-- Angular Application with Authentication -->
-    <script src="scripts/client.js"></script>
-    <!-- <script type="text/javascript" src="/scripts/factories/data.factory.js"></script> -->
-    <!-- <script type="text/javascript" src="/scripts/controllers/home.controller.js"></script> -->
-  </head>
-  <body ng-controller="SampleCtrl as sc">
-    <h1>Welcome to Ourdate</h1>
-    <button ng-click="sc.logIn()">Log In</button>
-    <button ng-click="sc.logOut()">Log Out</button>
-    <div>
-      {{sc.secretData}}
-    </div>
-  </body>
+  <!-- <header class="jumbotron text-center" ng-include="'/views/templates/header.html'"></header> -->
+  <h1>Welcome to Ourdate</h1>
+  </main>
+</body>
 </html>
