@@ -11,7 +11,7 @@ var config = {
 var pool = new pg.Pool(config);
 
 
-router.get('/ourdates', function(req, res) {
+router.get('/', function(req, res) {
   console.log('hit my get all dates route');
   pool.connect(function(err, client, done) {
     if(err){
@@ -19,7 +19,7 @@ router.get('/ourdates', function(req, res) {
       res.sendStatus(500);
     }else{
       // SELECT * FROM task;
-      client.query('SELECT * FROM ourdates ORDER BY status desc;', function(err, result) {
+      client.query('SELECT * FROM ourdates', function(err, result) {
         done(); // close the connection db
 
         if(err){
