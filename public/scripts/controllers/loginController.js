@@ -8,6 +8,7 @@ app.controller("LoginController", function($firebaseAuth, $http) {
     auth.$signInWithPopup("google").then(function(firebaseUser) {
       console.log("Firebase Authenticated as: ", firebaseUser.user.displayName);
       self.username = firebaseUser.user.displayName;
+      self.image = firebaseUser.user.photoURL;
     }).catch(function(error) {
       console.log("Authentication failed: ", error);
     });
@@ -43,6 +44,8 @@ app.controller("LoginController", function($firebaseAuth, $http) {
   self.logOut = function(){
     auth.$signOut().then(function(){
       console.log('Logging the user out!');
+      self.username = '';
+      self.image = '';
     });
   };
 });

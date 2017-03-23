@@ -1,9 +1,10 @@
-<nav class="topnav" id="myTopnav">
-  <ul>
+<nav  id="myTopnav">
+  <ul class="topnav">
     <li><a href="#!home-view">Home</a></li>
     <li><a href="#!carousel-view">Carousel</a></li>
-    <button ng-click="lc.logIn()">Log In</button>
-    <button ng-click="lc.logOut()">Log Out</button>
-    <h3>Hi {{lc.username}}!</h3>
+    <li><button ng-click="lc.logIn()">Log In</button></li>
+    <li><button ng-click="lc.logOut()">Log Out</button></li>
+    <li><h3>Hi {{lc.username}}!</h3></li>
+    <li><img id="userImage" src="{{lc.image}}"></li>
   </ul>
 </nav>

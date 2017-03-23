@@ -13,7 +13,7 @@
   <!-- Firebase Config -->
   <script src="scripts/config.js"></script>
   <!-- Angular Application with Authentication -->
-  <script src="scripts/client.js"></script>
+  <script type="text/javascript" src="scripts/client.js"></script>
   <script type="text/javascript" src="/scripts/factories/data.factory.js"></script>
   <script type="text/javascript" src="/scripts/controllers/home.controller.js"></script>
   <script type="text/javascript" src="/scripts/controllers/loginController.js"></script>
@@ -21,8 +21,8 @@
   <link rel="stylesheet" href="/css/styles.css" />
 </head>
 <!-- bring in angular app -->
-<body>
-  <main class="container" ng-app="ourdateApp">
+<body ng-app="ourdateApp">
+
     <!-- login controller is on every page -->
     <header ng-controller="LoginController as lc">
         <nav ng-include="'/views/templates/nav.html'"></nav>
@@ -33,7 +33,6 @@
           <!-- <p class="two columns" ng-show="lc.displayLogout">Hi {{lc.username}}! | <a id = "logout" href="#" ng-click="lc.logout()">Logout</a></p> -->
 
   <!-- <header class="jumbotron text-center" ng-include="'/views/templates/header.html'"></header> -->
-  <h1>Welcome to Ourdate</h1>
-  </main>
+  <main ng-view></main>
 </body>
 </html>

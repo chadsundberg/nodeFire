@@ -1,10 +1,10 @@
-var app = angular.module("ourdateApp", ["ngRoute"]);
+var app = angular.module('ourdateApp', ['ngRoute']);
 
 app.config(['$routeProvider', function($routeProvider) {
 
   //routes
   $routeProvider
-  .when ('/home-view', {
+  .when ('/home', {
     templateUrl: '/views/home-view.html',
     controller: 'HomeController',
     controllerAs: 'hc'
