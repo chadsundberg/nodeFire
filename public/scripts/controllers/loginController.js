@@ -1,5 +1,5 @@
-var app = angular.module("ourdateApp", ["firebase"]);
-app.controller("LoginController", function($firebaseAuth, $http) {
+
+app.controller("LoginController", ["$location", "$firebaseAuth", "$http", function($location, $firebaseAuth, $http) {
   var auth = $firebaseAuth();
   var self = this;
 
@@ -31,6 +31,7 @@ app.controller("LoginController", function($firebaseAuth, $http) {
           }
         }).then(function(response){
           self.secretData = response.data;
+          $location.path('/home');
         });
       });
     } else {
@@ -48,4 +49,4 @@ app.controller("LoginController", function($firebaseAuth, $http) {
       self.image = '';
     });
   };
-});
+}]);
