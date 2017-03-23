@@ -1,4 +1,3 @@
-
 app.controller("LoginController", ["$location", "$firebaseAuth", "$http", function($location, $firebaseAuth, $http) {
   var auth = $firebaseAuth();
   var self = this;
@@ -9,6 +8,7 @@ app.controller("LoginController", ["$location", "$firebaseAuth", "$http", functi
       console.log("Firebase Authenticated as: ", firebaseUser.user.displayName);
       self.username = firebaseUser.user.displayName;
       self.image = firebaseUser.user.photoURL;
+      $location.path('/datesearch');
     }).catch(function(error) {
       console.log("Authentication failed: ", error);
     });
@@ -31,7 +31,7 @@ app.controller("LoginController", ["$location", "$firebaseAuth", "$http", functi
           }
         }).then(function(response){
           self.secretData = response.data;
-          $location.path('/home');
+          // $location.path('/datesearch');
         });
       });
     } else {
@@ -47,6 +47,7 @@ app.controller("LoginController", ["$location", "$firebaseAuth", "$http", functi
       console.log('Logging the user out!');
       self.username = '';
       self.image = '';
+      $location.path('/login');
     });
   };
 }]);

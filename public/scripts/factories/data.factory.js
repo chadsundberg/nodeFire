@@ -1,4 +1,5 @@
 app.factory('DataFactory', ['$http', function($http) {
+  console.log('data factory loaded');
   var dateList = { list: [] };
   console.log(dateList);
 
@@ -7,15 +8,16 @@ app.factory('DataFactory', ['$http', function($http) {
   function getDates() {
     $http({
       method: 'GET',
-      url: '/ourdates'
+      url: '/ourDates'
     }).then(function(response) {
+      console.log(response.data);
       dateList.list = response.data;
     });
   }
 
 
   return {
-      allDates: dateList,
+      allDates: dateList
 
     }
 

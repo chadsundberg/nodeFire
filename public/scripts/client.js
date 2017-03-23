@@ -4,7 +4,12 @@ app.config(['$routeProvider', function($routeProvider) {
   console.log('route provider loaeded');
   //routes
   $routeProvider
-  .when ('/home', {
+  .when ('/login', {
+    templateUrl: '/views/templates/main.html',
+    controller: 'LoginController',
+    controllerAs: 'lc'
+  })
+  .when ('/datesearch', {
     templateUrl: '/views/home-view.html',
     controller: 'HomeController',
     controllerAs: 'hc'
@@ -19,12 +24,12 @@ app.config(['$routeProvider', function($routeProvider) {
   //   controller: 'CardViewController',
   //   controllerAs: 'cvc'
   // })
-  // .when ('/carousel-view', {
-  //   templateUrl: '/views/carousel-view.html',
-  //   controller: 'CarouselController',
-  //   controllerAs: 'cc'
-  // })
+  .when ('/carousel-view', {
+    templateUrl: '/views/carousel-view.html',
+    controller: 'CarouselController',
+    controllerAs: 'cc'
+  })
   .otherwise ({
-    redirectTo: 'home'
+    redirectTo: 'login'
   })
 }]);
