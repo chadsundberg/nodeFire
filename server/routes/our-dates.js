@@ -13,13 +13,17 @@ var pool = new pg.Pool(config);
 
 router.get('/', function(req, res) {
   console.log('hit my get all dates route');
+  var placeType = req.query.placeType;
+  console.log(placeType);
   pool.connect(function(err, client, done) {
     if(err){
       console.log(err);
       res.sendStatus(500);
     }else{
       // SELECT * FROM task;
-      client.query('SELECT * FROM ourdates', function(err, result) {
+      client.query('SELECT * FROM ourdates WHERE place_type=$1',
+      [placeType],
+      function(err, result) {
         done(); // close the connection db
 
         if(err){

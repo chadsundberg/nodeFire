@@ -22,6 +22,7 @@ app.controller("LoginController", ["$location", "$firebaseAuth", "$http", functi
     // firebaseUser will be null if not logged in
     if(firebaseUser) {
       // This is where we make our call to our server
+      self.userIsLoggedIn = true;
       firebaseUser.getToken().then(function(idToken){
         $http({
           method: 'GET',
@@ -37,6 +38,7 @@ app.controller("LoginController", ["$location", "$firebaseAuth", "$http", functi
     } else {
       console.log('Not logged in or not authorized.');
       self.secretData = "Log in to search for date activities.";
+      self.userIsLoggedIn = false;
     }
 
   });

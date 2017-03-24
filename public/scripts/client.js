@@ -14,7 +14,7 @@ app.config(['$routeProvider', function($routeProvider) {
     controller: 'HomeController',
     controllerAs: 'hc'
   })
-  .when ('/card-table', {
+  .when ('/card-table/:placeType', {
     templateUrl: '/views/card-table.html',
     controller: 'CardTableController',
     controllerAs: 'ctc'

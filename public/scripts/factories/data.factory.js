@@ -4,9 +4,9 @@ app.factory('DataFactory', ['$firebaseAuth', '$http', function($firebaseAuth, $h
   var auth = $firebaseAuth();
   console.log(dateList);
 
-  getDates();
 
-  function getDates() {
+
+  function getDates(placeType) {
     auth.$onAuthStateChanged(function(firebaseUser){
       // firebaseUser will be null if not logged in
       if(firebaseUser) {
@@ -17,7 +17,8 @@ app.factory('DataFactory', ['$firebaseAuth', '$http', function($firebaseAuth, $h
             url: '/ourDates',
             headers: {
               id_token: idToken
-            }
+            },
+            params: {placeType: placeType}
           }).then(function(response) {
             console.log(response.data);
             dateList.list = response.data;
@@ -32,7 +33,8 @@ app.factory('DataFactory', ['$firebaseAuth', '$http', function($firebaseAuth, $h
   }
 
   return {
-    allDates: dateList
+    allDates: dateList,
+    getDates: getDates
 
   }
 
