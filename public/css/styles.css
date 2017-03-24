@@ -2,8 +2,19 @@
   height: 60px;
   width: 60px;
   display: inline;
+  border-radius: 100%;
+}
+
+#brewery-option, #burger-option, #restaurant-option, #winery-option {
+  height: 200px;
+  width: 200px;
+  border-radius: 5px;
 }
 
 .topnav li {
   display: inline;
+}
+
+html, body {
+  background-color: red;
 }

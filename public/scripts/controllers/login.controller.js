@@ -8,7 +8,7 @@ app.controller("LoginController", ["$location", "$firebaseAuth", "$http", functi
       console.log("Firebase Authenticated as: ", firebaseUser.user.displayName);
       self.username = firebaseUser.user.displayName;
       self.image = firebaseUser.user.photoURL;
-      $location.path('/datesearch');
+      $location.path('/home-view');
     }).catch(function(error) {
       console.log("Authentication failed: ", error);
     });

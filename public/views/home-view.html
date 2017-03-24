@@ -2,9 +2,21 @@
 <div>
 <header class="jumbotron text-center" ng-include="'/views/templates/header.html'"></header>
 <h1>Welcome to Ourdate</h1>
-<h2>Time to search for Date Activities!</h2>
+<h2>Click a Date Activity!</h2>
 <div class="form-group col-md-6">
-        <label for="datetype">Search by Type</label>
-        <h3>Loaded Breweries {{hc.dateList}}!</h3>
+        <a href="#!card-table" ng-click=""><img id="brewery-option" src="/assets/brewery-image.jpg"/></a>
+        <label for="brewery-option">Top Breweries</label>
+</div>
+<div class="form-group col-md-6">
+        <a href="#!card-table" ng-click=""><img id="burger-option" src="/assets/cheeseburger-image.jpg"/></a>
+        <label for="burger-option">Top Burgers</label>
+</div>
+<div class="form-group col-md-6">
+        <a href="#!card-table" ng-click=""><img id="restaurant-option" src="/assets/restaurant-image.jpg"/></a>
+        <label for="restaurant-option">Top Restaurants</label>
+</div>
+<div class="form-group col-md-6">
+        <a href="#!card-table" ng-click=""><img id="winery-option" src="/assets/winery-image.jpg"/></a>
+        <label for="winery-option">Top Wineries</label>
 </div>
 </div>

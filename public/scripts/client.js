@@ -9,25 +9,25 @@ app.config(['$routeProvider', function($routeProvider) {
     controller: 'LoginController',
     controllerAs: 'lc'
   })
-  .when ('/datesearch', {
+  .when ('/home-view', {
     templateUrl: '/views/home-view.html',
     controller: 'HomeController',
     controllerAs: 'hc'
   })
-  // .when ('/card-table', {
-  //   templateUrl: '/views/card-table.html',
-  //   controller: 'CardTableController',
-  //   controllerAs: 'ctc'
-  // })
-  // .when ('/card-view', {
-  //   templateUrl: '/views/card-view.html',
-  //   controller: 'CardViewController',
-  //   controllerAs: 'cvc'
-  // })
+  .when ('/card-table', {
+    templateUrl: '/views/card-table.html',
+    controller: 'CardTableController',
+    controllerAs: 'ctc'
+  })
+  .when ('/card-view', {
+    templateUrl: '/views/card-view.html',
+    controller: 'CardViewController',
+    controllerAs: 'cvc'
+  })
   .when ('/carousel-view', {
     templateUrl: '/views/carousel-view.html',
     controller: 'CarouselController',
-    controllerAs: 'cc'
+    controllerAs: 'carousel'
   })
   .otherwise ({
     redirectTo: 'login'
