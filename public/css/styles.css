@@ -15,6 +15,19 @@
   display: inline;
 }
 
-html, body {
-  background-color: red;
+.card {
+  background-color: ivory;
+  border: 1px solid darkgray;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 1em 1em 1em 1em;
+  margin: 1em 2em 1em 0;
+  box-shadow: 0.4em 0.4em 0.8em darkgray;
+  /*max-width: 230px;*/
+  /*width: 800px;*/
+  list-style: none;
 }
+
+/*html, body {
+  background-color: teal;
+}*/
