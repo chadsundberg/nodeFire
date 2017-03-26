@@ -2,7 +2,7 @@
 
 
 
-<table>
+<!-- <table>
       <tr id="offset" class="row col-xs-18">
         <th class="col-xs-3">Name</th>
         <th class="col-xs-3">Description</th>
@@ -15,44 +15,21 @@
         <td class="col-xs-3">{{place.image_url}}</td>
         <td class="col-xs-3">{{place.web_link}}</td>
       </tr>
-  </table>
+  </table> -->
 
 <!-- {{ctc.dateList}} -->
 
 
-<a href="#!card-view">
+
+  <a href="#!card-view" ng-repeat="place in ctc.dateList.list">
   <div class="card">
-    <img class="card-img-top" src="..." alt="Card image cap">
+    <img class="card-img-top" src="{{place.image_url}}" alt="Business image cap">
     <div class="card-block">
-      <h4 class="card-title">Card title</h4>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <h4 class="card-title">{{place.place_name}}</h4>
+      <p class="card-text">{{place.description}}</p>
     </div>
     <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
-  </div>
-  </a>
-  <a href="#!card-view">
-  <div class="card">
-    <img class="card-img-top" src="..." alt="Card image cap">
-    <div class="card-block">
-      <h4 class="card-title">Card title</h4>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
-  </div>
-  </a>
-  <a href="#!card-view">
-  <div class="card">
-    <img class="card-img-top" src="..." alt="Card image cap">
-    <div class="card-block">
-      <h4 class="card-title">Card title</h4>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
+      <small class="text-muted" ng-href="{{place.web_link}}">{{place.web_link}}</small>
     </div>
   </div>
   </a>
