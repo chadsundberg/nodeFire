@@ -1,0 +1,35 @@
+<h1>Review</h1>
+<div class="review-card">
+<div ng-repeat="place in rc.placeDetails.list">
+<input size="large" type="date"></input>
+<input type="text" placeholder="Enter your review here."></input>
+<h1>{{rc.placeDetails.list[0].place_name}}</h1>
+  <img class="review-card-img-top" ng-src="{{place.image_url}}" alt="Business image cap">
+  <!-- <div class="cardview-section"> -->
+    <!-- <h2 class="cardview-info">Web Ranking: {{place.web_ranking}}</h2>
+    <h2 class="cardview-info">Price Range: {{place.price}}</h2> -->
+    <h3>Description</h3>
+    <p>{{place.description}}</p>
+
+    <p><a ng-href="#!carousel-view/{{place.id}}" ng-click=""><button>Save Date</button></a></p>
+
+    <p><a ng-href="{{place.web_link}}" target="_blank">{{place.web_link}}</a></p>
+  <!-- </div> -->
+</div>
+</div>
+</div>
+
+
+  <!-- <img class="cardview-image" ng-src="{{place.image_url}}" alt="Business image cap">
+  <div class="cardview-section">
+    <h2 class="cardview-info">Web Ranking: {{place.web_ranking}}</h2>
+    <h2 class="cardview-info">Price Range: {{place.price}}</h2>
+    <h3>Description</h3>
+    <p class="cardview-text">{{place.description}}</p> -->
+
+    <!-- <p><a ng-href="#!review-view/{{place.id}}"><button>Check-in</button></a></p>
+
+    <p><a ng-href="{{place.web_link}}" target="_blank">{{place.web_link}}</a></p>
+  </div>
+</div>
+</div> -->

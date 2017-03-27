@@ -24,6 +24,11 @@ app.config(['$routeProvider', function($routeProvider) {
     controller: 'CardViewController',
     controllerAs: 'cvc'
   })
+  .when ('/review-view/:placeId', {
+    templateUrl: '/views/review-view.html',
+    controller: 'ReviewController',
+    controllerAs: 'rc'
+  })
   .when ('/carousel-view', {
     templateUrl: '/views/carousel-view.html',
     controller: 'CarouselController',
