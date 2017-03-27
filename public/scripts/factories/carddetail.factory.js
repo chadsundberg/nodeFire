@@ -1,12 +1,12 @@
-app.factory('DataFactory', ['$firebaseAuth', '$http', function($firebaseAuth, $http) {
-  console.log('data factory loaded');
-  var dateList = { list: [] };
+app.factory('CardDetailFactory', ['$firebaseAuth', '$http', function($firebaseAuth, $http) {
+  console.log('card detail factory loaded');
+  var placeDetails = { list: [] };
   var auth = $firebaseAuth();
-  console.log(dateList);
+  console.log(placeDetails);
 
-
-
-  function getDates(placeType) {
+  function getPlace(placeId) {
+    console.log('factory getting place:', placeId);
+    // var firebaseUser = auth.$getAuth();
     auth.$onAuthStateChanged(function(firebaseUser){
       // firebaseUser will be null if not logged in
       if(firebaseUser) {
@@ -14,14 +14,14 @@ app.factory('DataFactory', ['$firebaseAuth', '$http', function($firebaseAuth, $h
         firebaseUser.getToken().then(function(idToken){
           $http({
             method: 'GET',
-            url: '/ourDates',
+            url: '/cardDetail',
             headers: {
               id_token: idToken
             },
-            params: {placeType: placeType}
+            params: {placeId: placeId}
           }).then(function(response) {
             console.log(response.data);
-            dateList.list = response.data;
+            placeDetails.list = response.data;
           });
         });
       } else {
@@ -32,11 +32,9 @@ app.factory('DataFactory', ['$firebaseAuth', '$http', function($firebaseAuth, $h
     });
   }
 
-
   return {
-    allDates: dateList,
-    getDates: getDates
-
+    allDetails: placeDetails,
+    getPlace: getPlace
   }
 
-}]);
+  }]);

@@ -1,6 +1,12 @@
-app.controller('CardViewController', ['DataFactory', function(DataFactory) {
-  console.log('card table controller loaded');
+app.controller('CardViewController', ['$routeParams', 'CardDetailFactory',
+function($routeParams, CardDetailFactory) {
+  console.log('card view controller loaded');
+  console.log($routeParams);
   var self = this;
-  self.dateList = DataFactory.allDates;
-  console.log(self.dateList);
+  self.placeDetails = CardDetailFactory.allDetails;
+
+  CardDetailFactory.getPlace($routeParams.placeId);
+
+
+  // console.log(self.placeDetails);
 }]);

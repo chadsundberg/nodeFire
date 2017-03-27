@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var decoder = require('./modules/decoder');
 var privateData = require('./routes/private-data');
 var ourDates = require('./routes/our-dates');
+var cardDetail = require('./routes/card-detail');
 // var admin = require("firebase-admin");
 // var serviceAccount = require("path/to/serviceAccountKey.json");
 
@@ -35,6 +36,7 @@ Other branches in the nodeFire repository show how to do that. */
 // This is the route for your secretData. The request gets here after it has been authenticated.
 app.use("/privateData", privateData);
 app.use("/ourDates", ourDates);
+app.use("/cardDetail", cardDetail);
 
 var portDecision = process.env.PORT || 5000;
 

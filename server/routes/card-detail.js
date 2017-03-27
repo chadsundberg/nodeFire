@@ -10,19 +10,18 @@ var config = {
 };
 var pool = new pg.Pool(config);
 
-
 router.get('/', function(req, res) {
-  console.log('hit my get all dates route');
-  var placeType = req.query.placeType;
-  console.log(placeType);
+  console.log('hit my get place id route');
+  var placeId = req.query.placeId;
+  console.log('placeId: ', placeId);
   pool.connect(function(err, client, done) {
     if(err){
       console.log(err);
       res.sendStatus(500);
     }else{
       // SELECT * FROM task;
-      client.query('SELECT * FROM ourdates WHERE place_type=$1',
-      [placeType],
+      client.query('SELECT * FROM ourdates WHERE id=$1',
+      [placeId],
       function(err, result) {
         done(); // close the connection db
 
@@ -30,14 +29,12 @@ router.get('/', function(req, res) {
           console.log(err);
           res.sendStatus(500); // the world exploded
         }else{
-          // console.log(result.rows);
+          console.log(result.rows);
           res.status(200).send(result.rows);
         }
       });
     }
   });
 });
-
-
 
 module.exports = router;

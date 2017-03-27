@@ -1,1 +1,12 @@
 <h1>This is the card-view</h1>
+
+<div class="card" ng-repeat="place in cvc.placeDetails.list">
+  <img class="card-img-top" ng-src="{{place.image_url}}" alt="Business image cap">
+  <div class="card-block">
+    <h4 class="card-title">{{place.place_name}}</h4>
+    <p class="card-text">{{place.description}}</p>
+  </div>
+  <div class="card-footer">
+    <a><small class="text-muted" ng-href="{{place.web_link}}">{{place.web_link}}</small></a>
+  </div>
+</div>

@@ -21,9 +21,9 @@
 
 
 
-  <a href="#!card-view" ng-repeat="place in ctc.dateList.list">
+  <a ng-href="#!card-view/{{place.id}}" ng-repeat="place in ctc.dateList.list">
   <div class="card">
-    <img class="card-img-top" src="{{place.image_url}}" alt="Business image cap">
+    <img class="card-img-top" ng-src="{{place.image_url}}" alt="Business image cap">
     <div class="card-block">
       <h4 class="card-title">{{place.place_name}}</h4>
       <p class="card-text">{{place.description}}</p>

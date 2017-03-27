@@ -1,7 +1,7 @@
 app.controller("LoginController", ["$location", "$firebaseAuth", "$http", function($location, $firebaseAuth, $http) {
   var auth = $firebaseAuth();
   var self = this;
-
+  console.log('login controller running');
   // This code runs whenever the user logs in
   self.logIn = function(){
     auth.$signInWithPopup("google").then(function(firebaseUser) {
@@ -23,6 +23,9 @@ app.controller("LoginController", ["$location", "$firebaseAuth", "$http", functi
     if(firebaseUser) {
       // This is where we make our call to our server
       self.userIsLoggedIn = true;
+      // console.log(firebaseUser);
+      self.username = firebaseUser.displayName;
+      self.image = firebaseUser.photoURL;
       firebaseUser.getToken().then(function(idToken){
         $http({
           method: 'GET',

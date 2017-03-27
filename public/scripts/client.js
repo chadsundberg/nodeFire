@@ -19,7 +19,7 @@ app.config(['$routeProvider', function($routeProvider) {
     controller: 'CardTableController',
     controllerAs: 'ctc'
   })
-  .when ('/card-view', {
+  .when ('/card-view/:placeId', {
     templateUrl: '/views/card-view.html',
     controller: 'CardViewController',
     controllerAs: 'cvc'

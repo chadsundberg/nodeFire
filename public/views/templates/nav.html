@@ -6,6 +6,6 @@
     <span ng-hide="lc.userIsLoggedIn"><li><button ng-click="lc.logIn()">Log In</button></li></span>
     <span ng-show="lc.userIsLoggedIn"><li><button ng-click="lc.logOut()">Log Out</button></li></span>
     <li><h3>Hi {{lc.username}}!</h3></li>
-    <li><img id="userImage" src="{{lc.image}}"></li>
+    <li><img id="userImage" ng-src="{{lc.image}}"></li>
   </ul>
 </nav>
