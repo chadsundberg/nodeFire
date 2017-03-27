@@ -5,7 +5,7 @@ function($routeParams, DataFactory) {
 
   var self = this;
   DataFactory.getDates($routeParams.placeType);
-
   self.dateList = DataFactory.allDates;
   console.log(self.dateList);
+  console.log(self.placeType);
 }]);
