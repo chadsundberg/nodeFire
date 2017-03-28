@@ -111,7 +111,7 @@ label.star:before {
   /*justify-content: center;*/
 }
 
-input[type="text"] {
+#descriptionInput {
   margin-top: 0px;
   width: 450px;
   height: 375px;
@@ -120,13 +120,13 @@ input[type="text"] {
   float: left;
 }
 
-input[type="date"] {
+/*#eventDateTime {
   width: 30px;
   margin: auto;
   /*height: 10px;*/
-  border-radius: 10px;
+  /*border-radius: 10px;
   display: block;
-}
+}*/
 
 
 
