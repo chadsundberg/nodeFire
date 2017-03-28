@@ -1,17 +1,16 @@
 <div class="card">
-<h1>{{cvc.placeDetails.list[0].place_name}}</h1>
+<div id="cardviewheader"><h1>{{cvc.placeDetails.list[0].place_name}}</h1></div>
 <hr />
 <div class="cardview" ng-repeat="place in cvc.placeDetails.list">
   <img class="cardview-image" ng-src="{{place.image_url}}" alt="Business image cap">
-  <div class="cardview-section">
-    <h2 class="cardview-info">Web Ranking: {{place.web_ranking}}</h2>
-    <h2 class="cardview-info">Price Range: {{place.price}}</h2>
-    <h3>Description</h3>
-    <p class="cardview-text">{{place.description}}</p>
-
+    <h2 class="cardview-section">Web Ranking: {{place.web_ranking}}</h2>
+    <h2 class="cardview-section">Price Range: {{place.price}}</h2>
+    <h3 class="cardview-section">Description</h3>
+    <p>{{place.description}}</p>
+    <div class="cardview-section">
     <p><a ng-href="#!review-view/{{place.id}}"><button>Check-in</button></a></p>
-
     <p><a ng-href="{{place.web_link}}" target="_blank">{{place.web_link}}</a></p>
+  </div>
   </div>
 </div>
 </div>

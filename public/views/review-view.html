@@ -1,35 +1,31 @@
-<h1>Review</h1>
-<div class="review-card">
-<div ng-repeat="place in rc.placeDetails.list">
-<input size="large" type="date"></input>
-<input type="text" placeholder="Enter your review here."></input>
-<h1>{{rc.placeDetails.list[0].place_name}}</h1>
-  <img class="review-card-img-top" ng-src="{{place.image_url}}" alt="Business image cap">
-  <!-- <div class="cardview-section"> -->
-    <!-- <h2 class="cardview-info">Web Ranking: {{place.web_ranking}}</h2>
-    <h2 class="cardview-info">Price Range: {{place.price}}</h2> -->
-    <h3>Description</h3>
+<div class="card">
+<div id="reviewheader">
+<h1>Review</h1><input type="datetime-local" id="eventDateTime" class="form-control" ng-model="create.newEvent.eventDateTime"></input>
+<div class="stars">
+  <form action="">
+    <input class="star star-5" id="star-5" type="radio" name="star"/>
+    <label class="star star-5" for="star-5"></label>
+    <input class="star star-4" id="star-4" type="radio" name="star"/>
+    <label class="star star-4" for="star-4"></label>
+    <input class="star star-3" id="star-3" type="radio" name="star"/>
+    <label class="star star-3" for="star-3"></label>
+    <input class="star star-2" id="star-2" type="radio" name="star"/>
+    <label class="star star-2" for="star-2"></label>
+    <input class="star star-1" id="star-1" type="radio" name="star"/>
+    <label class="star star-1" for="star-1"></label>
+  </form>
+</div>
+</div>
+<div class="cardview" ng-repeat="place in rc.placeDetails.list">
+  <input type="text" placeholder="Enter your review of {{rc.placeDetails.list[0].place_name}}."></input>
+    <img class="review-card-img-top" ng-src="{{place.image_url}}" alt="Business image cap">
+    <h2 class="cardview-section">Web Ranking: {{place.web_ranking}}</h2>
+    <h2 class="cardview-section">Price Range: {{place.price}}</h2>
+    <div class="review-cardview-section">
+    <p><a ng-href="#!carousel-view/{{place.id}}"><button>Post this review</button></a></p>
+    <p><h3>Description of {{rc.placeDetails.list[0].place_name}}</h3></p>
     <p>{{place.description}}</p>
-
-    <p><a ng-href="#!carousel-view/{{place.id}}" ng-click=""><button>Save Date</button></a></p>
-
-    <p><a ng-href="{{place.web_link}}" target="_blank">{{place.web_link}}</a></p>
-  <!-- </div> -->
-</div>
-</div>
-</div>
-
-
-  <!-- <img class="cardview-image" ng-src="{{place.image_url}}" alt="Business image cap">
-  <div class="cardview-section">
-    <h2 class="cardview-info">Web Ranking: {{place.web_ranking}}</h2>
-    <h2 class="cardview-info">Price Range: {{place.price}}</h2>
-    <h3>Description</h3>
-    <p class="cardview-text">{{place.description}}</p> -->
-
-    <!-- <p><a ng-href="#!review-view/{{place.id}}"><button>Check-in</button></a></p>
-
     <p><a ng-href="{{place.web_link}}" target="_blank">{{place.web_link}}</a></p>
   </div>
 </div>
-</div> -->
+</div>
