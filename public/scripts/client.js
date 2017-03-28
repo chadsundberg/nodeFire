@@ -34,6 +34,11 @@ app.config(['$routeProvider', function($routeProvider) {
     controller: 'CarouselController',
     controllerAs: 'carousel'
   })
+  .when('/addReview', {
+    templateUrl: '/views/review-view.html',
+    controller: 'ReviewController',
+    controllerAs: 'rc'
+  })
   .otherwise ({
     redirectTo: 'login'
   })

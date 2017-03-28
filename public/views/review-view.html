@@ -1,31 +1,36 @@
 <div class="card">
 <div id="reviewheader">
-<h1>Review</h1><input type="datetime-local" id="eventDateTime" class="form-control" ng-model="create.newEvent.eventDateTime"></input>
+<h1>Review</h1><input type="datetime-local" id="eventDateTime" class="form-control" ng-model="rc.newReview.visit_date"></input>
 <div class="stars">
   <form action="">
-    <input class="star star-5" id="star-5" type="radio" name="star"/>
+    <input ng-model="rc.newReview.visit_rating" class="star star-5" id="star-5" type="radio" name="star"/>
     <label class="star star-5" for="star-5"></label>
-    <input class="star star-4" id="star-4" type="radio" name="star"/>
+    <input ng-model="rc.newReview.visit_rating" class="star star-4" id="star-4" type="radio" name="star"/>
     <label class="star star-4" for="star-4"></label>
-    <input class="star star-3" id="star-3" type="radio" name="star"/>
+    <input ng-model="rc.newReview.visit_rating" class="star star-3" id="star-3" type="radio" name="star"/>
     <label class="star star-3" for="star-3"></label>
-    <input class="star star-2" id="star-2" type="radio" name="star"/>
+    <input ng-model="rc.newReview.visit_rating" class="star star-2" id="star-2" type="radio" name="star"/>
     <label class="star star-2" for="star-2"></label>
-    <input class="star star-1" id="star-1" type="radio" name="star"/>
+    <input ng-model="rc.newReview.visit_rating" class="star star-1" id="star-1" type="radio" name="star"/>
     <label class="star star-1" for="star-1"></label>
   </form>
 </div>
 </div>
 <div class="cardview" ng-repeat="place in rc.placeDetails.list">
-  <input type="text" placeholder="Enter your review of {{rc.placeDetails.list[0].place_name}}."></input>
+  <input ng-model="rc.newReview.visit_description" type="text" placeholder="Enter your review of {{rc.placeDetails.list[0].place_name}}"></input>
     <img class="review-card-img-top" ng-src="{{place.image_url}}" alt="Business image cap">
     <h2 class="review-cardview-info">Web Ranking: {{place.web_ranking}}</h2>
     <h2 class="review-cardview-info">Price Range: {{place.price}}</h2>
     <div class="review-cardview-section">
-    <p><a ng-href="#!carousel-view/{{place.id}}"><button>Post this review</button></a></p>
+    <p><a ng-href="#!carousel-view"><button ng-click="rc.addNewReview(rc.newReview)">Post this review</button></a></p>
     <p><h3>Description of {{rc.placeDetails.list[0].place_name}}</h3></p>
     <p>{{place.description}}</p>
     <p><a ng-href="{{place.web_link}}" target="_blank">{{place.web_link}}</a></p>
   </div>
 </div>
 </div>
+
+<!-- <input ng-model="ahc.newHero.persona" placeholder="Persona">
+<input ng-model="ahc.newHero.alias" placeholder="Alias">
+<select ng-model="ahc.newHero.power_id" placeholder="Power Id"  ng-options="item.id as item.name for item in ahc.superpowers.list"></select>
+<button ng-click="ahc.spawnNewHero(ahc.newHero)">Spawn New Hero</button> -->

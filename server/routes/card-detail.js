@@ -37,4 +37,22 @@ router.get('/', function(req, res) {
   });
 });
 
+router.post('/', function (req, res) {
+  var newReview = req.body;
+  console.log('New Review: ', newReview);
+  pool.connect()
+    .then(function (client) {
+      client.query('INSERT INTO reviews (visit_description, visit_date, visit_rating) VALUES ($1, $2, $3)',
+        [newReview.visit_description, newReview.visit_date, newReview.visit_rating])
+        .then(function (result) {
+          client.release();
+          res.sendStatus(201);
+        })
+        .catch(function (err) {
+          console.log('error on INSERT', err);
+          res.sendStatus(500);
+        });
+    });
+});
+
 module.exports = router;
