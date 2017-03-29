@@ -55,7 +55,7 @@ router.post('/', function (req, res) {
     });
 });
 
-router.get('/', function(req, res) {
+router.get('/reviews', function(req, res) {
   console.log('hit my get place id route');
   var placeId = req.query.placeId;
   console.log('placeId: ', placeId);
@@ -65,7 +65,7 @@ router.get('/', function(req, res) {
       res.sendStatus(500);
     }else{
       // SELECT * FROM task;
-      client.query('SELECT * FROM reviews WHERE date_id=$1',
+      client.query('SELECT * FROM ourdates JOIN reviews ON reviews.date_id=ourdates.id WHERE ourdates.id=$1',
       [placeId],
       function(err, result) {
         done(); // close the connection db

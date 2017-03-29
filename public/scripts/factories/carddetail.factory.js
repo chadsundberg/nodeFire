@@ -44,7 +44,7 @@ app.factory('CardDetailFactory', ['$firebaseAuth', '$http', function($firebaseAu
         firebaseUser.getToken().then(function(idToken){
           $http({
             method: 'GET',
-            url: '/cardDetail',
+            url: '/cardDetail/reviews',
             headers: {
               id_token: idToken
             },
