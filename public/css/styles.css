@@ -295,4 +295,9 @@ html, body {
 
 }
 
+#reviewfooter {
+  width: 100%;
+  display: inline-block;
+}
+
 /*#a3c2c2, */
