@@ -42,8 +42,8 @@ router.post('/', function (req, res) {
   console.log('New Review: ', newReview);
   pool.connect()
     .then(function (client) {
-      client.query('INSERT INTO reviews (visit_description, visit_date, visit_rating) VALUES ($1, $2, $3)',
-        [newReview.visit_description, newReview.visit_date, newReview.visit_rating])
+      client.query('INSERT INTO reviews (visit_description, visit_date, visit_rating, date_id) VALUES ($1, $2, $3, $4)',
+        [newReview.visit_description, newReview.visit_date, newReview.visit_rating, newReview.id])
         .then(function (result) {
           client.release();
           res.sendStatus(201);

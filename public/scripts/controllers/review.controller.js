@@ -4,7 +4,6 @@ function($routeParams, CardDetailFactory) {
   console.log($routeParams);
   var self = this;
   self.placeDetails = CardDetailFactory.allDetails;
-  self.newReview = CardDetailFactory.newReview;
 
 
 // console.log('self.newReview', self.newReview);
@@ -12,6 +11,7 @@ function($routeParams, CardDetailFactory) {
 
   self.addNewReview = function() {
     console.log('clicked', self.newReview);
+    self.newReview.id = $routeParams.placeId;
     CardDetailFactory.addNewReview(self.newReview);
     self.newReview = {};
 

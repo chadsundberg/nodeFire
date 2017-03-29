@@ -1,7 +1,7 @@
 <div class="card">
 <div id="reviewheader">
   <form name="reviewForm">
-<h1>Review</h1><input type="text" data-date-format="yy-mm-dd" id="eventDateTime" ng-model="rc.newReview.visit_date"></input>
+<h1>Review</h1><input type="text" data-date-format="yy-mm-dd" id="eventDateTime" ng-model="rc.newReview.visit_date" placeholder="YYYY/MM/DD"></input>
 <div class="stars">
     <input value="5" ng-model="rc.newReview.visit_rating" class="star star-5" id="star-5" type="radio" name="star"/>
     <label class="star star-5" for="star-5"></label>
@@ -16,7 +16,7 @@
 
 </div>
 </div>
-<div class="cardview" ng-repeat="place in rc.placeDetails.list">
+<div class="cardview" ng-repeat="place in rc.placeDetails.list" >
   <input ng-model="rc.newReview.visit_description" id="descriptionInput" type="text" placeholder="Enter your review of {{rc.placeDetails.list[0].place_name}}"></input>
     <img class="review-card-img-top" ng-src="{{place.image_url}}" alt="Business image cap">
     <h2 class="review-cardview-info">Web Ranking: {{place.web_ranking}}</h2>
