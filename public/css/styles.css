@@ -45,23 +45,27 @@ label.star:before {
   font-size: 50px;
   font-weight: bolder;
   font-family: fantasy;
-  color: #993333;
+  color: #b30000;
 }
 
 #home-view-h2 {
   font-size: 50px;
   font-weight: bolder;
   font-family: fantasy;
-  color: #993333;
+  color: #b30000;
 }
 
 .home-view-label {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bolder;
   font-family: fantasy;
-  color: #993333;
+  color: #b30000;
   background-color: #ededde;
   border-radius: 3px;
+  width: inherit;
+  margin: 10px 10px 10px 50px;
+  padding: 5px 5px 5px 20px;
+
 }
 
 #userImage {
@@ -78,6 +82,7 @@ label.star:before {
   /*padding: 1em 1em 1em 1em;
   margin: 1em 2em 1em 0;*/
   box-shadow: 0.6em 0.6em 1.2em darkgray;
+  margin-left: 50px;
 }
 
 /*#white {
@@ -105,10 +110,14 @@ label.star:before {
 }
 
 .topnav li {
+  font-size: 18px;
   display: block;
   float: left;
   height: 10%;
-  margin: 5px 50px 5px 50px;
+  margin: 5px 60px 5px 60px;
+  font-family: fantasy;
+  color: #b30000;
+
   /*justify-content: center;*/
 }
 
@@ -271,7 +280,7 @@ label.star:before {
   background-size: cover;
   background-repeat: no-repeat;
   /*opacity: 0.75;*/
-  color: #993333;
+  color: #b30000;
   /*background-color: white;*/
   /*text-shadow: white;*/
   text-decoration-color: white;

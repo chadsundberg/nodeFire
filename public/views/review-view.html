@@ -1,7 +1,9 @@
 <div class="card">
   <div id="reviewheader">
     <form name="reviewForm">
-      <h1>Review</h1><input type="text" data-date-format="yy-mm-dd" id="eventDateTime" ng-model="rc.newReview.visit_date" placeholder="YYYY/MM/DD"></input>
+      <h1>Review</h1>
+      <!-- <input type="text" data-date-format="yy-mm-dd" id="eventDateTime" ng-model="rc.newReview.visit_date" placeholder="YYYY/MM/DD"></input> -->
+      <input type="date" id="date" ng-model="rc.newReview.visit_date" >
       <div class="stars">
         <input value="5" ng-model="rc.newReview.visit_rating" class="star star-5" id="star-5" type="radio" name="star"/>
         <label class="star star-5" for="star-5"></label>
@@ -31,11 +33,11 @@
     <h2 id="fancyReviewHeading">Previous Visits</h2>
     <hr />
     <div ng-repeat="review in rc.previousVisits.list">
-    <p>Date: {{review.visit_date}}</p>
+    <p>{{review.visit_date | date: 'mediumDate'}}</p>
     <p>{{review.visit_rating}} Stars</p>
     <p>Review: {{review.visit_description}}</p>
-    <button>Edit this review</button>
-    <button>Delete this review</button>
+    <button ng-click="rc.editReview()">Edit this review</button>
+    <button ng-click="rc.deleteReview()">Delete this review</button>
     <hr />
     </div>
   </div>

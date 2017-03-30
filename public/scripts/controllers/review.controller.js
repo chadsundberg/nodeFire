@@ -20,6 +20,11 @@ function($routeParams, CardDetailFactory) {
     CardDetailFactory.getReviews($routeParams.placeId);
   }
 
+  // self.editReview = function() {
+  //       console.log('review to update is:', self.reviewToEdit);
+  //       self.reviewToEdit.id = $routeParams.reviewId;
+  //       CardDetailFactory.getReviews($routeParams.placeId);
+  //     }
 
 // CardDetailFactory.getReviews($routeParams.placeId);
 
@@ -28,17 +33,8 @@ function($routeParams, CardDetailFactory) {
 }]);
 
 
-// ctrl.editRecord = function(record) {
-//       console.log('record is:', record);
-//       CollectionService.editRecord(record).then(function() {
-//         CollectionService.getRecord().then(function(records) {
-//           console.log(records);
-//           ctrl.recordsList = records;
-//
-//         });
-//       });
-//     }
-//
+
+
 //     ctrl.deleteRecord = function(id) {
 //       console.log('deleting', id);
 //       CollectionService.deleteRecord(id).then(function() {
