@@ -65,8 +65,9 @@ router.get('/reviews', function(req, res) {
       res.sendStatus(500);
     }else{
       // SELECT * FROM task;
-      client.query('SELECT * FROM ourdates JOIN reviews ON reviews.date_id=ourdates.id WHERE ourdates.id=$1',
+      client.query('SELECT * FROM ourdates JOIN reviews ON reviews.date_id=ourdates.id WHERE ourdates.id=$1 ORDER BY visit_date DESC',
       [placeId],
+
       function(err, result) {
         done(); // close the connection db
 
