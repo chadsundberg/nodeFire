@@ -15,7 +15,7 @@
         <label class="star star-1" for="star-1"></label>
       </div>
       <div class="cardview" ng-repeat="place in rc.placeDetails.list" >
-        <input ng-model="rc.newReview.visit_description" id="descriptionInput" type="text" placeholder="Enter your review of {{rc.placeDetails.list[0].place_name}}"></input>
+        <input ng-model ="rc.newReview.visit_description" id="descriptionInput" type="text" placeholder="Enter your review of {{rc.placeDetails.list[0].place_name}}"></input>
         <img class="review-card-img-top" ng-src="{{place.image_url}}" alt="Business image cap">
         <h2 class="review-cardview-info">Web Ranking: {{place.web_ranking}}</h2>
         <h2 class="review-cardview-info">Price Range: {{place.price}}</h2>
