@@ -15,7 +15,7 @@ label.star {
 
 input.star:checked ~ label.star:before {
   content: '\f005';
-  color: #993333;
+  color: #ffe033;
   transition: all .25s;
 }
 
@@ -182,7 +182,7 @@ label.star:before {
 }
 
 .review-card-img-top {
-  height: 275px;
+  height: 325px;
   border: 1px solid gray;
   box-shadow: 0.15em 0.15em gray;
   display: block;
@@ -226,10 +226,6 @@ label.star:before {
   float: left;
 }
 
-.cardview-info {
-  /*margin-left: 60px;*/
-  /*border-left: 20px;*/
-}
 
 .review-cardview-section {
   /*margin-left: 40px;*/
@@ -278,6 +274,12 @@ label.star:before {
   float: left;
   padding: 0 0.5em 0 0;
   font-style: bold;
+  background-color: ivory;
+  border-radius: 10px;
+  border-width: thick;
+  box-shadow: 0.15em 0.15em gray;
+  margin-left: 20px;
+  padding-left: 10px;
 }
 
 .card-footer {
@@ -289,15 +291,56 @@ label.star:before {
 html, body {
   width: 100%;
 	height: 100%;
-  background-color: #ffeb99;
+  background-color: #cccccc; 
+  /*#f9edd2;*/
   /*background-image: url("/assets/mpls.jpg");
   background-repeat: space;*/
 
 }
 
+#cardViewDescription {
+  background-color: ivory;
+  border-radius: 10px;
+  border-width: thick;
+  box-shadow: 0.15em 0.15em gray;
+  /*margin-left: 80px;*/
+  /*padding-left: 10px;*/
+  padding: 10px;
+  margin-left: 40px;
+  /*margin: 20px;*/
+  display: flex;
+  /*float: right;*/
+}
+
 #reviewfooter {
   width: 100%;
   display: inline-block;
+  background-color: ivory;
+  border-radius: 10px;
+  border-width: thick;
+  box-shadow: 0.15em 0.15em gray;
+  padding-left: 10px;
+  padding: 10px;
 }
+
+#niceReviewDescription {
+  width: 100%;
+  display: inline-block;
+  background-color: ivory;
+  border-radius: 10px;
+  border-width: thick;
+  box-shadow: 0.15em 0.15em gray;
+  padding: 10px;
+}
+
+#fancyReviewHeading {
+  background-color: #d9d9d9;
+}
+
+#weblink {
+  color: red;
+}
+
+
 
 /*#a3c2c2, */

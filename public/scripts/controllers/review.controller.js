@@ -18,7 +18,7 @@ function($routeParams, CardDetailFactory) {
     CardDetailFactory.addNewReview(self.newReview);
     self.newReview = {};
   }
-
+CardDetailFactory.getReviews($routeParams.placeId);
 
 
   // console.log(self.placeDetails);

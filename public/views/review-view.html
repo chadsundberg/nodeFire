@@ -23,16 +23,19 @@
         <p><button ng-click="rc.addNewReview()">Post this review</button></p>
     </form>
       <p><h3>Description of {{rc.placeDetails.list[0].place_name}}</h3></p>
-      <p>{{place.description}}</p>
-      <p><a ng-href="{{place.web_link}}" target="_blank">{{place.web_link}}</a></p>
+      <p id="niceReviewDescription">{{place.description}}</p>
+      <p><a id="webLink" ng-href="{{place.web_link}}" target="_blank">{{place.web_link}}</a></p>
     </div>
   </div>
-  <div id="reviewfooter" ng-repeat="review in rc.previousVisits.list">
-    <h2>Previous Visits</h2>
-    <p>{{review.visit_description}}</p>
-    <p>{{review.visit_date}}</p>
-    <p>{{review.visit_rating}}</p>
-    <p>{{review.place_name}}</p>
+  <div id="reviewfooter">
+    <h2 id="fancyReviewHeading">Previous Visits</h2>
+    <hr />
+    <div ng-repeat="review in rc.previousVisits.list">
+    <p>Date: {{review.visit_date}}</p>
+    <p>{{review.visit_rating}} Stars</p>
+    <p>Review: {{review.visit_description}}</p>
+    <hr />
+    </div>
   </div>
 </div>
 </div>
