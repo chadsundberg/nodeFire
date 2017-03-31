@@ -5,6 +5,7 @@ function($routeParams, CardDetailFactory) {
   var self = this;
   self.placeDetails = CardDetailFactory.allDetails;
   self.previousVisits = CardDetailFactory.previousVisitDetails;
+
   // self.reviewUpdateDetails = CardDetailFactory.reviewUpdateDetails;
   // self.reviewToDelete = CardDetailFactory.reviewToDelete;
 

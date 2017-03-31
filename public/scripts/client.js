@@ -1,4 +1,4 @@
-var app = angular.module('ourdateApp', ['ngRoute', 'firebase']);
+var app = angular.module('ourdateApp', ['angular-3d-carousel', 'ngRoute', 'firebase']);
 
 app.config(['$routeProvider', function($routeProvider) {
   console.log('route provider loaeded');
@@ -29,7 +29,7 @@ app.config(['$routeProvider', function($routeProvider) {
     controller: 'ReviewController',
     controllerAs: 'rc'
   })
-  .when ('/carousel-view', {
+  .when ('/carousel-view/reviews', {
     templateUrl: '/views/carousel-view.html',
     controller: 'CarouselController',
     controllerAs: 'carousel'

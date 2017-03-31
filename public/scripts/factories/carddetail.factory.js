@@ -3,6 +3,7 @@ app.factory('CardDetailFactory', ['$firebaseAuth', '$http','$routeParams', funct
   var placeDetails = { list: [] };
   var reviewDetails = { list: {} };
   var previousVisits = { list: {} };
+  var reviewList = { list: {} };
   // var reviewUpdateDetails = { list: {} };
   // var reviewToDelete = { list: {} };
   var auth = $firebaseAuth();
@@ -143,6 +144,33 @@ app.factory('CardDetailFactory', ['$firebaseAuth', '$http','$routeParams', funct
       }
     }
 
+    function getAllReviews() {
+      console.log('factory getting place:');
+      // var firebaseUser = auth.$getAuth();
+      auth.$onAuthStateChanged(function(firebaseUser){
+        // firebaseUser will be null if not logged in
+        if(firebaseUser) {
+          // This is where we make our call to our server
+          firebaseUser.getToken().then(function(idToken){
+            $http({
+              method: 'GET',
+              url: '/cardDetail/reviews/all',
+              headers: {
+                id_token: idToken
+              }
+
+            }).then(function(response) {
+              console.log(response.data);
+              reviewList.list = response.data;
+            });
+          });
+        } else {
+          console.log('Not logged in or not authorized.');
+          self.secretData = "Log in to search for date activities.";
+        }
+      });
+    }
+
 
 
   return {
@@ -154,7 +182,9 @@ app.factory('CardDetailFactory', ['$firebaseAuth', '$http','$routeParams', funct
     previousVisitDetails: previousVisits,
     // reviewToDelete: reviewToDelete,
     editReview: editReview,
-    deleteReview: deleteReview
+    deleteReview: deleteReview,
+    getAllReviews: getAllReviews,
+    allReviews: reviewList
   }
 
 }]);
