@@ -13,7 +13,7 @@ var pool = new pg.Pool(config);
 router.get('/', function(req, res) {
   console.log('hit my get place id route');
   var placeId = req.query.placeId;
-  console.log('placeId: ', placeId);
+  // console.log('placeId: ', placeId);
   pool.connect(function(err, client, done) {
     if(err){
       console.log(err);
@@ -58,7 +58,7 @@ router.post('/', function (req, res) {
 router.get('/reviews', function(req, res) {
   console.log('hit my get place id route');
   var placeId = req.query.placeId;
-  console.log('placeId: ', placeId);
+  // console.log('placeId: ', placeId);
   pool.connect(function(err, client, done) {
     if(err){
       console.log(err);
@@ -82,5 +82,46 @@ router.get('/reviews', function(req, res) {
     }
   });
 });
+
+router.put('/reviews/:id', function(req, res) {
+  var reviewID = req.params.id;
+  var review = req.body;
+  console.log('Updating review:, ', review.id);
+  pool.connect()
+    .then(function (client) {
+      client.query('UPDATE reviews SET visit_date = $1, visit_rating = $2, visit_description = $3 WHERE id = $4',
+        [review.visit_date, review.visit_rating, review.visit_description, reviewID])
+        .then(function (result) {
+          client.release();
+          res.sendStatus(200);
+        })
+        .catch(function (err) {
+          console.log('error on UPDATE', err);
+          res.sendStatus(500);
+        });
+    });
+});
+
+router.delete('/reviews/:id', function(req, res) {
+  var reviewId = req.params.id;
+  // var review = req.body;
+  console.log('Updating review: ', reviewId);
+  pool.connect()
+    .then(function (client) {
+      client.query('DELETE FROM reviews WHERE id=$1',
+        [reviewId])
+        .then(function (result) {
+          client.release();
+          res.sendStatus(200);
+        })
+        .catch(function (err) {
+          console.log('error on UPDATE', err);
+          res.sendStatus(500);
+        });
+    });
+});
+
+
+
 
 module.exports = router;

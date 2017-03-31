@@ -1,9 +1,10 @@
-app.factory('CardDetailFactory', ['$firebaseAuth', '$http', function($firebaseAuth, $http) {
+app.factory('CardDetailFactory', ['$firebaseAuth', '$http','$routeParams', function($firebaseAuth, $http, $routeParams) {
   console.log('card detail factory loaded');
   var placeDetails = { list: [] };
   var reviewDetails = { list: {} };
   var previousVisits = { list: {} };
-  var reviewUpdateDetails = { list: {} };
+  // var reviewUpdateDetails = { list: {} };
+  // var reviewToDelete = { list: {} };
   var auth = $firebaseAuth();
   console.log(placeDetails);
 
@@ -65,89 +66,82 @@ app.factory('CardDetailFactory', ['$firebaseAuth', '$http', function($firebaseAu
     console.log('factory getting place:', newReview);
     var firebaseUser = auth.$getAuth();
     // auth.$onAuthStateChanged(function(firebaseUser){
+    // firebaseUser will be null if not logged in
+    if(firebaseUser) {
+      // This is where we make our call to our server
+      firebaseUser.getToken().then(function(idToken){
+        $http({
+          method: 'POST',
+          url: '/cardDetail',
+          headers: {
+            id_token: idToken
+          },
+          data: newReview
+        }).then(function(response) {
+          console.log(response.data);
+          getReviews($routeParams.placeId);
+        });
+      });
+    } else {
+      console.log('Not logged in or not authorized.');
+      self.secretData = "Log in to search for date activities.";
+    }
+  }
+
+  function editReview(review) {
+    console.log('factory getting place:', review);
+    var firebaseUser = auth.$getAuth();
+    // auth.$onAuthStateChanged(function(firebaseUser){
+    // firebaseUser will be null if not logged in
+    if(firebaseUser) {
+      // This is where we make our call to our server
+      firebaseUser.getToken().then(function(idToken){
+        $http({
+          method: 'PUT',
+          url: '/cardDetail/reviews/' + review.id,
+          headers: {
+            id_token: idToken
+          },
+          data: review
+        }).then(function(response) {
+          console.log(response.data);
+          getReviews($routeParams.placeId);
+          // reviewUpdateDetails.list = response.data;
+        });
+      });
+    } else {
+      console.log('Not logged in or not authorized.');
+      self.secretData = "Log in to search for date activities.";
+    }
+  }
+
+  function deleteReview(review) {
+    console.log('factory getting place:', review);
+    // var firebaseUser = auth.$getAuth();
+  var firebaseUser = auth.$getAuth();
       // firebaseUser will be null if not logged in
       if(firebaseUser) {
         // This is where we make our call to our server
         firebaseUser.getToken().then(function(idToken){
           $http({
-            method: 'POST',
-            url: '/cardDetail',
+            method: 'DELETE',
+            url: '/cardDetail/reviews/' + review.id,
             headers: {
               id_token: idToken
             },
-            data: newReview
+            params: {review: review}
           }).then(function(response) {
-            console.log(response.data);
-            reviewDetails.list = response.data;
+            // console.log(response.data);
+            getReviews($routeParams.placeId);
           });
         });
       } else {
         console.log('Not logged in or not authorized.');
         self.secretData = "Log in to search for date activities.";
       }
-  }
+    }
 
-  function editReview(reviewId) {
-    console.log('factory getting place:', reviewId);
-    var firebaseUser = auth.$getAuth();
-    // auth.$onAuthStateChanged(function(firebaseUser){
-      // firebaseUser will be null if not logged in
-      if(firebaseUser) {
-        // This is where we make our call to our server
-        firebaseUser.getToken().then(function(idToken){
-    $http({
-      type: 'PUT',
-      url: '/reviews/update',
-      headers: {
-        id_token: idToken
-      },
-      data: reviewId
-    }).then(function(response) {
-      console.log(response.data);
-      reviewUpdateDetails.list = response.data;
-    });
-  });
-} else {
-  console.log('Not logged in or not authorized.');
-  self.secretData = "Log in to search for date activities.";
-}
-}
 
-//
-//   $('#taskList').on('click', '.deleteButton', function(){
-//     var idOfTaskToDelete = $(this).parent().parent().data().id;
-//     console.log(idOfTaskToDelete);
-//     swal({
-//       title: 'Are you sure you want to delete?',
-//       text: "Do you really want to delete this task?",
-//       type: 'warning',
-//       showCancelButton: true,
-//       confirmButtonText: 'Yes, delete it!'
-//     }).then(function() {
-//       swal(
-//         'Deleted!',
-//         'Your task has been deleted.',
-//         'success'
-//       )
-//       deleteTask(idOfTaskToDelete);
-//       $('#taskList').empty();
-//       getTaskData();
-//     })
-//
-//   });
-//
-// });
-//
-// function deleteTask(id) {
-// $.ajax({
-//   type: 'DELETE',
-//   url: '/tasks/delete/' + id,
-//   success: function(response) {
-//     console.log(response);
-//   }
-// })
-//
-// }
 
   return {
     allDetails: placeDetails,
@@ -156,7 +150,9 @@ app.factory('CardDetailFactory', ['$firebaseAuth', '$http', function($firebaseAu
     newReview: reviewDetails,
     getReviews: getReviews,
     previousVisitDetails: previousVisits,
-    // :reviewUpdateDetails
+    // reviewToDelete: reviewToDelete,
+    editReview: editReview,
+    deleteReview: deleteReview
   }
 
-  }]);
+}]);

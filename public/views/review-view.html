@@ -34,12 +34,14 @@
     <hr />
     <div ng-repeat="review in rc.previousVisits.list">
     <p>{{review.visit_date | date: 'mediumDate'}}</p>
-    <p>{{review.visit_rating}} Stars</p>
-    <p>Review: {{review.visit_description}}</p>
-    <button ng-click="rc.editReview()">Edit this review</button>
-    <button ng-click="rc.deleteReview()">Delete this review</button>
+    <p><input type="text" ng-model="review.visit_rating"></input></p>
+    <p><input type="text" ng-model="review.visit_description"></input></p>
+    <button ng-click="rc.editReview(review)">Edit this review</button>
+    <button ng-click="rc.deleteReview(review)">Delete this review</button>
     <hr />
     </div>
   </div>
 </div>
 </div>
+
+ <!-- | date: 'mediumDate' -->

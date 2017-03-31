@@ -5,6 +5,8 @@ function($routeParams, CardDetailFactory) {
   var self = this;
   self.placeDetails = CardDetailFactory.allDetails;
   self.previousVisits = CardDetailFactory.previousVisitDetails;
+  // self.reviewUpdateDetails = CardDetailFactory.reviewUpdateDetails;
+  // self.reviewToDelete = CardDetailFactory.reviewToDelete;
 
 
 // console.log('self.newReview', self.newReview);
@@ -16,32 +18,16 @@ function($routeParams, CardDetailFactory) {
     self.newReview.id = $routeParams.placeId;
     CardDetailFactory.addNewReview(self.newReview);
     self.newReview = {};
-    // location.reload();
-    CardDetailFactory.getReviews($routeParams.placeId);
   }
 
-  // self.editReview = function() {
-  //       console.log('review to update is:', self.reviewToEdit);
-  //       self.reviewToEdit.id = $routeParams.reviewId;
-  //       CardDetailFactory.getReviews($routeParams.placeId);
-  //     }
+  self.editReview = function(review) {
+        CardDetailFactory.editReview(review);
+        console.log(review);
+      }
 
-// CardDetailFactory.getReviews($routeParams.placeId);
+  self.deleteReview = function(review) {
+        CardDetailFactory.deleteReview(review);
+        console.log(review);
+          }
 
-
-  // console.log(self.placeDetails);
 }]);
-
-
-
-
-//     ctrl.deleteRecord = function(id) {
-//       console.log('deleting', id);
-//       CollectionService.deleteRecord(id).then(function() {
-//         CollectionService.getRecord().then(function(records) {
-//           console.log(records);
-//           ctrl.recordsList = records;
-//         });
-//       });
-//     }
-//   }

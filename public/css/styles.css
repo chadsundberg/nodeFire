@@ -117,6 +117,9 @@ label.star:before {
   margin: 5px 60px 5px 60px;
   font-family: fantasy;
   color: #b30000;
+  background-color: ivory;
+  padding: 5px;
+  border-radius: 3px;
 
   /*justify-content: center;*/
 }
