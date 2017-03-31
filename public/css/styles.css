@@ -117,9 +117,9 @@ label.star:before {
   margin: 5px 60px 5px 60px;
   font-family: fantasy;
   color: #b30000;
-  background-color: ivory;
+  background-color: #d9d9d9;
   padding: 5px;
-  border-radius: 3px;
+  border-radius: 5px;
 
   /*justify-content: center;*/
 }
@@ -399,6 +399,16 @@ html, body {
 
 #weblink {
   color: red;
+}
+
+#starRating {
+  width: 20px;
+  height: 20px;
+}
+
+#ratingDescription {
+  width: 400px;
+  height: 100px;
 }
 
 

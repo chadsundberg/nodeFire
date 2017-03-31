@@ -1,5 +1,6 @@
 var router = require('express').Router();
 var pg = require('pg');
+// const swal = require('sweetalert2');
 
 // var config = {
 //   database: 'phi',

@@ -9,8 +9,14 @@ app.controller("LoginController", ["$location", "$firebaseAuth", "$http", functi
       self.username = firebaseUser.user.displayName;
       self.image = firebaseUser.user.photoURL;
       $location.path('/home-view');
+      swal({
+title: 'congrats!',
+text: 'you logged in',
+confirmButtonText: 'Cool'
+})
     }).catch(function(error) {
       console.log("Authentication failed: ", error);
+
     });
   };
 
@@ -35,6 +41,7 @@ app.controller("LoginController", ["$location", "$firebaseAuth", "$http", functi
           }
         }).then(function(response){
           self.secretData = response.data;
+
           // $location.path('/datesearch');
         });
       });
@@ -42,6 +49,7 @@ app.controller("LoginController", ["$location", "$firebaseAuth", "$http", functi
       console.log('Not logged in or not authorized.');
       self.secretData = "Log in to search for date activities.";
       self.userIsLoggedIn = false;
+      
     }
 
   });
@@ -53,6 +61,11 @@ app.controller("LoginController", ["$location", "$firebaseAuth", "$http", functi
       self.username = '';
       self.image = '';
       $location.path('/login');
+      swal({
+title: 'Thanks for using Ourdate',
+text: 'you logged out',
+confirmButtonText: 'Peace'
+})
     });
   };
 }]);

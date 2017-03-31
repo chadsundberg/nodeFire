@@ -115,6 +115,8 @@ app.factory('CardDetailFactory', ['$firebaseAuth', '$http','$routeParams', funct
     }
   }
 
+
+
   function deleteReview(review) {
     console.log('factory getting place:', review);
     // var firebaseUser = auth.$getAuth();

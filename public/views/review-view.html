@@ -17,7 +17,7 @@
         <label class="star star-1" for="star-1"></label>
       </div>
       <div class="cardview" ng-repeat="place in rc.placeDetails.list" >
-        <input ng-model ="rc.newReview.visit_description" id="descriptionInput" type="text" placeholder="Enter your review of {{rc.placeDetails.list[0].place_name}}"></input>
+        <textarea ng-model ="rc.newReview.visit_description" id="descriptionInput" placeholder="Enter your review of {{rc.placeDetails.list[0].place_name}}"></textarea>
         <img class="review-card-img-top" ng-src="{{place.image_url}}" alt="Business image cap">
         <h2 class="review-cardview-info">Web Ranking: {{place.web_ranking}}</h2>
         <h2 class="review-cardview-info">Price Range: {{place.price}}</h2>
@@ -34,8 +34,8 @@
     <hr />
     <div ng-repeat="review in rc.previousVisits.list">
     <p>{{review.visit_date | date: 'mediumDate'}}</p>
-    <p><input type="text" ng-model="review.visit_rating"></input></p>
-    <p><input type="text" ng-model="review.visit_description"></input></p>
+    <p><textarea id="starRating" ng-model="review.visit_rating">Stars</textarea></p>
+    <p><textarea id="ratingDescription" ng-model="review.visit_description"></textarea></p>
     <button ng-click="rc.editReview(review)">Edit this review</button>
     <button ng-click="rc.deleteReview(review)">Delete this review</button>
     <hr />
