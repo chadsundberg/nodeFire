@@ -1,28 +1,5 @@
 <h1 id="card-table-view-h1">{{ctc.dateList.list[0].place_type}} Date Cards</h1>
 
-<!-- {{ctc.dateList}} -->
-<!-- {{ctc.dateList.list}} -->
-
-
-
-<!-- <table>
-      <tr id="offset" class="row col-xs-18">
-        <th class="col-xs-3">Name</th>
-        <th class="col-xs-3">Description</th>
-        <th class="col-xs-3">Picture</th>
-        <th class="col-xs-3">Link to Website</th>
-      </tr>
-      <tr class="row col-xs-18" ng-repeat="place in ctc.dateList.list" class="row col-xs-12">
-        <td class="col-xs-3">{{place.place_name}}</td>
-        <td class="col-xs-3">{{place.description}}</td>
-        <td class="col-xs-3">{{place.image_url}}</td>
-        <td class="col-xs-3">{{place.web_link}}</td>
-      </tr>
-  </table> -->
-
-<!-- {{ctc.dateList}} -->
-
-
 <div class="card-block">
   <a ng-href="#!card-view/{{place.id}}" ng-repeat="place in ctc.dateList.list">
   <div class="card">
@@ -37,20 +14,3 @@
   </div>
   </a>
   </div>
-
-<!-- <div class="card" style="width: 20rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
-  <div class="card-block">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Vestibulum at eros</li>
-  </ul>
-  <div class="card-block">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div> -->

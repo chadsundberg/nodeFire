@@ -1,4 +1,4 @@
-var app = angular.module('ourdateApp', ['angular-3d-carousel', 'ngRoute', 'firebase']);
+var app = angular.module('ourdateApp', ['angular-carousel', 'ngRoute', 'firebase']);
 
 app.config(['$routeProvider', function($routeProvider) {
   console.log('route provider loaeded');

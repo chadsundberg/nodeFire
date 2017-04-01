@@ -7,6 +7,8 @@ function($routeParams, CardDetailFactory) {
   var self = this;
   self.reviewList = CardDetailFactory.allReviews;
 
+  console.log(self.reviewList);
+
   CardDetailFactory.getAllReviews();
 
 
