@@ -21,13 +21,15 @@
         <img class="review-card-img-top" ng-src="{{place.image_url}}" alt="Business image cap">
         <h2 class="review-cardview-info">Web Ranking: {{place.web_ranking}}</h2>
         <h2 class="review-cardview-info">Price Range: {{place.price}}</h2>
-    <div class="review-cardview-section">
+
         <p><button ng-click="rc.addNewReview()">Post this review</button></p>
     </form>
+    <div class="review-cardview-section">
       <p><h3>Description of {{rc.placeDetails.list[0].place_name}}</h3></p>
       <p id="niceReviewDescription">{{place.description}}</p>
       <p><a id="webLink" ng-href="{{place.web_link}}" target="_blank">{{place.web_link}}</a></p>
     </div>
+  </div>
   </div>
   <div id="reviewfooter">
     <h2 id="fancyReviewHeading">Previous Visits</h2>
@@ -36,12 +38,12 @@
     <p>{{review.visit_date | date: 'mediumDate'}}</p>
     <p><textarea id="starRating" ng-model="review.visit_rating">Stars</textarea></p>
     <p><textarea id="ratingDescription" ng-model="review.visit_description"></textarea></p>
-    <button ng-click="rc.editReview(review)">Edit this review</button>
-    <button ng-click="rc.deleteReview(review)">Delete this review</button>
+    <button id="saveButton" ng-click="rc.editReview(review)">Save changes</button>
+    <button id="deleteButton" ng-click="rc.deleteReview(review)">Delete this review</button>
     <hr />
     </div>
   </div>
-</div>
+
 </div>
 
  <!-- | date: 'mediumDate' -->

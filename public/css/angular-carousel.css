@@ -20,6 +20,7 @@ ul[rn-carousel] {
   overflow: hidden;
   margin: 0px 400px 0px 400px;
   padding: 30px;
+  /*padding-left: 80px;*/
   white-space: nowrap;
   position: relative;
   -webkit-perspective: 1000px;

@@ -64,11 +64,13 @@ label.star:before {
   font-weight: bolder;
   font-family: fantasy;
   color: #b30000;
-  background-color: #d9d9d9;
-  border-radius: 3px;
   width: inherit;
-  margin: 10px 10px 10px 50px;
+  margin: 10px 10px 10px 75px;
   padding: 5px 5px 5px 20px;
+  background-color: ivory;
+  border-radius: 10px;
+  border-width: thick;
+  box-shadow: 0.15em 0.15em gray;
 
 }
 
@@ -109,8 +111,53 @@ label.star:before {
   margin-left: 32px;
 }
 
+#reviewheader button {
+  border-radius: 5px;
+  color: #b30000;
+  font-size: medium;
+  font-family: fantasy;
+  padding: 10px 5px 5px 5px;
+  margin: 10px;
+  background-color: #cceeff;
+}
+
+#deleteButton {
+  background-color: #ffb3b3;
+  border-radius: 5px;
+  color: #b30000;
+  font-size: medium;
+  font-family: fantasy;
+  padding: 10px 5px 5px 5px;
+  margin: 10px;
+}
+
+#saveButton {
+  border-radius: 5px;
+  color: #b30000;
+  font-size: medium;
+  font-family: fantasy;
+  padding: 10px 5px 5px 5px;
+  margin: 10px;
+  background-color: #f5deb3;
+}
+
+#webLink {
+  background-color: ivory;
+  font-size: medium;
+  padding: 5px;
+  border-radius: 5px;
+  border-width: thin;
+  box-shadow: 0.15em 0.15em gray;
+
+}
+
 #cardviewheader {
   margin-left: 20px;
+}
+
+.topnav {
+  background-color: #d9d9d9;
+  width: 100%;
 }
 
 .topnav li {
@@ -118,7 +165,7 @@ label.star:before {
   display: block;
   float: left;
   height: 10%;
-  margin: 5px 60px 5px 60px;
+  margin: 5px 50px 5px 50px;
   font-family: fantasy;
   color: #b30000;
   background-color: #d9d9d9;
@@ -193,6 +240,15 @@ label.star:before {
   /*width: 800px;*/
   list-style: none;
   margin-left: 10px;
+}
+
+.cardview-card button {
+  border-radius: 5px;
+  color: #b30000;
+  font-size: medium;
+  font-family: fantasy;
+  padding: 10px 5px 5px 5px;
+  background-color: #cceeff;
 }
 
 
@@ -273,6 +329,20 @@ label.star:before {
   padding: 40px;*/
 }
 
+/*#descriptionSection p {
+  padding: 0px 0px 20px 0px;
+  margin: 10px 0px 10px 0px;
+}*/
+
+.cardview-info {
+  margin: 0px 0px 20px 0px;
+}
+
+/*#descriptionSection {
+  margin: 20px;
+  padding: 10px 0px 20px 0px;
+}*/
+
 .review-cardview-info {
   margin-left: 40px;
   display: block;
@@ -280,10 +350,12 @@ label.star:before {
 }
 
 
-.review-cardview-section {
+.review-cardview-section p {
   /*margin-left: 40px;*/
   display: block;
   float: left;
+  padding: 0px 0px 20px 0px;
+  margin: 10px 0px 10px 0px;
   /*border: 10px;
   padding: 40px;*/
 }
@@ -409,9 +481,10 @@ label.star:before {
   background-color: #d9d9d9;
 }
 
-#weblink {
+/*#weblink {
   color: red;
-}
+  margin: 10px 0px 10px 0px;
+}*/
 
 #starRating {
   width: 20px;

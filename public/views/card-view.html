@@ -7,9 +7,11 @@
     <h2 >Web Ranking: {{place.web_ranking}}</h2>
     <h2 >Price Range: {{place.price}}</h2>
     <h3 >Description</h3>
+    <div id="descriptionSection">
     <p id="cardViewDescription">{{place.description}}</p>
     <p><a ng-href="#!review-view/{{place.id}}"><button>Check-in</button></a></p>
-    <p><a ng-href="{{place.web_link}}" target="_blank">{{place.web_link}}</a></p>
+    <p><a id="webLink" ng-href="{{place.web_link}}" target="_blank">{{place.web_link}}</a></p>
+  </div>
   </div>
   </div>
 </div>
