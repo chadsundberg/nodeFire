@@ -1,6 +1,5 @@
 var router = require('express').Router();
 var pg = require('pg');
-// const swal = require('sweetalert2');
 
 var config = {
   database: 'phi',
@@ -9,6 +8,7 @@ var config = {
   max: 10,
   idleTimeoutMillis: 5000
 };
+
 var pool = new pg.Pool(config);
 
 router.get('/', function(req, res) {
@@ -42,18 +42,18 @@ router.post('/', function (req, res) {
   var newReview = req.body;
   console.log('New Review: ', newReview);
   pool.connect()
-    .then(function (client) {
-      client.query('INSERT INTO reviews (visit_description, visit_date, visit_rating, date_id) VALUES ($1, $2, $3, $4)',
-        [newReview.visit_description, newReview.visit_date, newReview.visit_rating, newReview.id])
-        .then(function (result) {
-          client.release();
-          res.sendStatus(201);
-        })
-        .catch(function (err) {
-          console.log('error on INSERT', err);
-          res.sendStatus(500);
-        });
+  .then(function (client) {
+    client.query('INSERT INTO reviews (visit_description, visit_date, visit_rating, date_id) VALUES ($1, $2, $3, $4)',
+    [newReview.visit_description, newReview.visit_date, newReview.visit_rating, newReview.id])
+    .then(function (result) {
+      client.release();
+      res.sendStatus(201);
+    })
+    .catch(function (err) {
+      console.log('error on INSERT', err);
+      res.sendStatus(500);
     });
+  });
 });
 
 router.get('/reviews', function(req, res) {
@@ -89,18 +89,18 @@ router.put('/reviews/:id', function(req, res) {
   var review = req.body;
   console.log('Updating review:, ', review.id);
   pool.connect()
-    .then(function (client) {
-      client.query('UPDATE reviews SET visit_date = $1, visit_rating = $2, visit_description = $3 WHERE id = $4',
-        [review.visit_date, review.visit_rating, review.visit_description, reviewID])
-        .then(function (result) {
-          client.release();
-          res.sendStatus(200);
-        })
-        .catch(function (err) {
-          console.log('error on UPDATE', err);
-          res.sendStatus(500);
-        });
+  .then(function (client) {
+    client.query('UPDATE reviews SET visit_date = $1, visit_rating = $2, visit_description = $3 WHERE id = $4',
+    [review.visit_date, review.visit_rating, review.visit_description, reviewID])
+    .then(function (result) {
+      client.release();
+      res.sendStatus(200);
+    })
+    .catch(function (err) {
+      console.log('error on UPDATE', err);
+      res.sendStatus(500);
     });
+  });
 });
 
 router.delete('/reviews/:id', function(req, res) {
@@ -108,18 +108,18 @@ router.delete('/reviews/:id', function(req, res) {
   // var review = req.body;
   console.log('Updating review: ', reviewId);
   pool.connect()
-    .then(function (client) {
-      client.query('DELETE FROM reviews WHERE id=$1',
-        [reviewId])
-        .then(function (result) {
-          client.release();
-          res.sendStatus(200);
-        })
-        .catch(function (err) {
-          console.log('error on UPDATE', err);
-          res.sendStatus(500);
-        });
+  .then(function (client) {
+    client.query('DELETE FROM reviews WHERE id=$1',
+    [reviewId])
+    .then(function (result) {
+      client.release();
+      res.sendStatus(200);
+    })
+    .catch(function (err) {
+      console.log('error on UPDATE', err);
+      res.sendStatus(500);
     });
+  });
 });
 
 router.get('/reviews/all', function(req, res) {
@@ -133,8 +133,7 @@ router.get('/reviews/all', function(req, res) {
     }else{
       // SELECT * FROM task;
       client.query('SELECT * FROM ourdates JOIN reviews ON reviews.date_id=ourdates.id ORDER BY visit_date DESC',
-    
-
+      
       function(err, result) {
         done(); // close the connection db
 
@@ -149,8 +148,5 @@ router.get('/reviews/all', function(req, res) {
     }
   });
 });
-
-
-
 
 module.exports = router;

@@ -28,7 +28,6 @@ app.factory('DataFactory', ['$firebaseAuth', '$http', function($firebaseAuth, $h
         console.log('Not logged in or not authorized.');
         self.secretData = "Log in to search for date activities.";
       }
-
     });
   }
 
@@ -36,7 +35,6 @@ app.factory('DataFactory', ['$firebaseAuth', '$http', function($firebaseAuth, $h
   return {
     allDates: dateList,
     getDates: getDates
-
   }
 
 }]);

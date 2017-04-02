@@ -38,7 +38,6 @@ label.star:before {
   color: white;
   font-size: small;
   font-style: muted;
-
 }
 
 #card-table-view-h1 {
@@ -71,7 +70,6 @@ label.star:before {
   border-radius: 10px;
   border-width: thick;
   box-shadow: 0.15em 0.15em gray;
-
 }
 
 #userImage {
@@ -85,20 +83,13 @@ label.star:before {
   height: 250px;
   width: 300px;
   border-radius: 10px;
-  /*padding: 1em 1em 1em 1em;
-  margin: 1em 2em 1em 0;*/
   box-shadow: 0.6em 0.6em 1.2em darkgray;
   margin-left: 50px;
 }
 
-/*#white {
-  color: white;
-}*/
-
 #menu-board {
   background-image: url("/assets/wood.jpg");
   margin-left: 20px;
-  /*opacity: 0.75;*/
 }
 
 #eventDateTime {
@@ -149,7 +140,6 @@ label.star:before {
   border-radius: 5px;
   border-width: thin;
   box-shadow: 0.15em 0.15em gray;
-
 }
 
 #cardviewheader {
@@ -172,8 +162,6 @@ label.star:before {
   background-color: #d9d9d9;
   padding: 5px;
   border-radius: 5px;
-
-  /*justify-content: center;*/
 }
 
 #descriptionInput {
@@ -185,49 +173,24 @@ label.star:before {
   float: left;
 }
 
-/*#eventDateTime {
-  width: 30px;
-  margin: auto;
-  /*height: 10px;*/
-  /*border-radius: 10px;
-  display: block;
-}*/
-
 .card-block {
   margin-left: 65px;
 }
 
-
-
 .card {
   background-image: url("/assets/lightest-paper.jpg");
-  /*opacity: 0.50;*/
-  /*width: 100%;
-  height: 100%;*/
-  /*position: fixed;*/
-  /*opacity: 0.75;
-  left: 0px;
-  top: 0px;
-  z-index: -1;*/
   border: 1px solid darkgray;
   border-radius: 10px;
   display: inline-block;
   padding: 1em 1em 1em 1em;
   margin: 1em 2em 1em 0;
   box-shadow: 0.6em 0.6em 1.2em darkgray;
-  /*max-width: 230px;*/
-  /*width: 800px;*/
   list-style: none;
   margin-left: 10px;
 }
 
 .cardview-card {
   background-image: url("/assets/lightest-paper.jpg");
-  /*opacity: 0.50;*/
-  /*width: 100%;
-  height: 100%;*/
-  /*position: fixed;*/
-  /*opacity: 0.75;*/
   left: 0px;
   top: 0px;
   z-index: -1;*/
@@ -237,8 +200,6 @@ label.star:before {
   padding: 1em 1em 1em 1em;
   margin: 1em 2em 1em 0;
   box-shadow: 0.6em 0.6em 1.2em darkgray;
-  /*max-width: 230px;*/
-  /*width: 800px;*/
   list-style: none;
   margin-left: 10px;
 }
@@ -264,8 +225,6 @@ label.star:before {
   height: 60px;
   border: 1px solid gray;
   box-shadow: 0.15em 0.15em gray;
-  /*display: block;
-  margin: auto;*/
 }
 
 .review-card-img-top {
@@ -275,8 +234,6 @@ label.star:before {
   display: block;
   float: left;
   margin: 0px 40px 0px 40px;
-  /*float: right;*/
-  /*margin: auto;*/
 }
 
 .cardview-image {
@@ -284,18 +241,12 @@ label.star:before {
   border: 1px solid gray;
   box-shadow: 0.15em 0.15em gray;
   display: block;
-  /*margin: 20px;*/
   float: left;
   margin-right: 40px;
-  /*border-right: 20px;*/
-
 }
 
 .cardview {
-  /*margin: 20px;*/
   padding: 10px 0px 10px 0px;
-  /*background-image: url("/assets/bricks.jpg");
-  color: white;*/
 }
 
 .cardview-section {
@@ -303,23 +254,11 @@ label.star:before {
   margin: 20px;
   display: block;
   float: left;
-  /*border: 10px;
-  padding: 40px;*/
 }
-
-/*#descriptionSection p {
-  padding: 0px 0px 20px 0px;
-  margin: 10px 0px 10px 0px;
-}*/
 
 .cardview-info {
   margin: 0px 0px 20px 0px;
 }
-
-/*#descriptionSection {
-  margin: 20px;
-  padding: 10px 0px 20px 0px;
-}*/
 
 .review-cardview-info {
   margin-left: 40px;
@@ -327,15 +266,11 @@ label.star:before {
   float: left;
 }
 
-
 .review-cardview-section p {
-  /*margin-left: 40px;*/
   display: block;
   float: left;
   padding: 0px 0px 20px 0px;
   margin: 10px 0px 10px 0px;
-  /*border: 10px;
-  padding: 40px;*/
 }
 
 .jumbotron {
@@ -344,30 +279,18 @@ label.star:before {
   background-position: 0% 25%;
   background-size: cover;
   background-repeat: no-repeat;
-  /*opacity: 0.75;*/
   color: #b30000;
-  /*background-color: white;*/
-  /*text-shadow: white;*/
   text-decoration-color: white;
-  /*color: #993333;*/
 }
 
 .decorated-header {
-  /*background-image: url("/assets/bricks.jpg");*/
-  /*background-color: white;*/
   width: 100%;
 	height: 100%;
-  /*background-color: #993333;*/
-  /*color: white;
-	position: static;*/
-	/*opacity: 0.75;*/
 	left: 0px;
 	top: 0px;
-	/*z-index: -1;*/
   font-size: 60px;
   font-weight: bolder;
   font-family: fantasy;
-  /*color: #993333;*/
 }
 
 .card-text {
@@ -396,13 +319,9 @@ label.star:before {
   border-radius: 10px;
   border-width: thick;
   box-shadow: 0.15em 0.15em gray;
-  /*margin-left: 80px;*/
-  /*padding-left: 10px;*/
   padding: 10px;
   margin-left: 40px;
-  /*margin: 20px;*/
   display: flex;
-  /*float: right;*/
 }
 
 #reviewfooter {

@@ -1,7 +1,7 @@
 app.controller("LoginController", ["$location", "$firebaseAuth", "$http", function($location, $firebaseAuth, $http) {
   var auth = $firebaseAuth();
   var self = this;
-  console.log('login controller running');
+  // console.log('login controller running');
   // This code runs whenever the user logs in
   self.logIn = function(){
     auth.$signInWithPopup("google").then(function(firebaseUser) {
@@ -9,14 +9,8 @@ app.controller("LoginController", ["$location", "$firebaseAuth", "$http", functi
       self.username = firebaseUser.user.displayName;
       self.image = firebaseUser.user.photoURL;
       $location.path('/home-view');
-      swal({
-title: 'Welcome Back!',
-text: 'You are logged into OurDate',
-confirmButtonText: 'Find Cool Dates'
-})
     }).catch(function(error) {
       console.log("Authentication failed: ", error);
-
     });
   };
 
@@ -49,9 +43,7 @@ confirmButtonText: 'Find Cool Dates'
       console.log('Not logged in or not authorized.');
       self.secretData = "Log in to search for date activities.";
       self.userIsLoggedIn = false;
-
     }
-
   });
 
   // This code runs when the user logs out
@@ -62,10 +54,10 @@ confirmButtonText: 'Find Cool Dates'
       self.image = '';
       $location.path('/login');
       swal({
-title: 'Thanks for using OurDate',
-text: 'You are logged out.',
-confirmButtonText: 'Peace out'
-})
+        title: 'Thanks for using OurDate',
+        text: 'You are logged out.',
+        confirmButtonText: 'Peace out'
+      })
     });
   };
 }]);

@@ -2,7 +2,6 @@
   <div class="animated bounceInDown" id="reviewheader">
     <form name="reviewForm">
       <h1>Review</h1>
-      <!-- <input type="text" data-date-format="yy-mm-dd" id="eventDateTime" ng-model="rc.newReview.visit_date" placeholder="YYYY/MM/DD"></input> -->
       <input type="date" id="date" ng-model="rc.newReview.visit_date" >
       <div class="stars">
         <input value="5" ng-model="rc.newReview.visit_rating" class="star star-5" id="star-5" type="radio" name="star"/>
@@ -22,27 +21,24 @@
         <h2 class="review-cardview-info">Web Ranking: {{place.web_ranking}}</h2>
         <h2 class="review-cardview-info">Price Range: {{place.price}}</h2>
         <p><button ng-click="rc.addNewReview()">Post this review</button></p>
-    </form>
-    <div class="review-cardview-section">
-      <p><h3>Description of {{rc.placeDetails.list[0].place_name}}</h3></p>
-      <p id="niceReviewDescription">{{place.description}}</p>
-      <p><a id="webLink" ng-href="{{place.web_link}}" target="_blank">{{place.web_link}}</a></p>
+      </form>
+      <div class="review-cardview-section">
+        <p><h3>Description of {{rc.placeDetails.list[0].place_name}}</h3></p>
+        <p id="niceReviewDescription">{{place.description}}</p>
+        <p><a id="webLink" ng-href="{{place.web_link}}" target="_blank">{{place.web_link}}</a></p>
+      </div>
     </div>
-  </div>
   </div>
   <div class="animated bounceInUp" id="reviewfooter">
     <h2 id="fancyReviewHeading">Previous Visits</h2>
     <hr />
     <div ng-repeat="review in rc.previousVisits.list">
-    <p>{{review.visit_date | date: 'mediumDate'}}</p>
-    <p><textarea id="starRating" ng-model="review.visit_rating">Stars</textarea></p>
-    <p><textarea id="ratingDescription" ng-model="review.visit_description"></textarea></p>
-    <button id="saveButton" ng-click="rc.editReview(review)">Save changes</button>
-    <button id="deleteButton" ng-click="rc.deleteReview(review)">Delete this review</button>
-    <hr />
+      <p>{{review.visit_date | date: 'mediumDate'}}</p>
+      <p><textarea id="starRating" ng-model="review.visit_rating">Stars</textarea></p>
+      <p><textarea id="ratingDescription" ng-model="review.visit_description"></textarea></p>
+      <button id="saveButton" ng-click="rc.editReview(review)">Save changes</button>
+      <button id="deleteButton" ng-click="rc.deleteReview(review)">Delete this review</button>
+      <hr />
     </div>
   </div>
-
 </div>
-
- <!-- | date: 'mediumDate' -->

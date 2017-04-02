@@ -1,119 +1,29 @@
 <h2 id="home-view-h2">Date Carousel</h2>
-<!-- <p>{{carousel.reviewList.list}}</p> -->
 
-<!-- ng-repeat="review in carousel.reviewList.list"  -->
-
-<!-- <carousel sides="vm.sides.all" current="vm.sides.current"></carousel> -->
-<!-- <div id="carousel" sides="carousel.reviewList.list.all" current="carousel.reviewList.list.current" class="ng-scope"> -->
-  <!-- ngRepeat: side in sides track by $index -->
-  <!-- <figure ng-repeat="review in carousel.reviewList.list track by $index" class="ng-scope" >
-  <img ng-src="{{review.image_url}}" alt="Venue Picture">
-  <div>
-    <h2 >{{review.place_name}}</h2>
-    <hr>
-    <ul> -->
-      <!-- ngRepeat: li in side.listItems track by $index -->
-      <!-- <li >{{review.visit_date | date: 'mediumDate'}}</li> -->
-      <!-- end ngRepeat: li in side.listItems track by $index -->
-      <!-- <li >{{review.visit_rating}} Stars</li> -->
-      <!-- end ngRepeat: li in side.listItems track by $index -->
-      <!-- <li >{{review.visit_description}}</li> -->
-      <!-- end ngRepeat: li in side.listItems track by $index -->
-    <!-- </ul>
-  </div>
-</figure>
-</div> -->
 <div class="animated rubberBand">
-<div class="carousel">
-<ul rn-carousel rn-carousel-buffered rn-carousel-index="carouselIndex" rn-carousel-controls rn-carousel-easing="easeInOutSine" rn-carousel-transition="hexagon">
-  <li ng-repeat="review in carousel.reviewList.list">
-    <a ng-href="#!review-view/{{review.date_id}}">
-    <div class="card">
-    <!-- <a class="card" ng-href="#!review-view/{{place.id}}"> -->
+  <div class="carousel">
+    <ul rn-carousel rn-carousel-buffered rn-carousel-index="carouselIndex" rn-carousel-controls rn-carousel-easing="easeInOutSine" rn-carousel-transition="hexagon">
+      <li ng-repeat="review in carousel.reviewList.list">
+        <a ng-href="#!review-view/{{review.date_id}}">
+          <div class="card">
+            <img class="card-img-top" ng-src="{{review.image_url}}" alt="Venue Picture"/>
 
-        <!-- <div id="user_{{ user.username }}"> -->
-          <img class="card-img-top" ng-src="{{review.image_url}}" alt="Venue Picture"/>
-
-          <div >
-            <h4 >{{review.place_name}}</h4>
-            <hr>
-            <ul class="card-text">
-              <!-- ngRepeat: li in side.listItems track by $index -->
-              <li >{{review.visit_date | date: 'mediumDate'}}</li>
-              <!-- end ngRepeat: li in side.listItems track by $index -->
-              <li >{{review.visit_rating}} Stars</li>
-              <!-- end ngRepeat: li in side.listItems track by $index -->
-              <li >{{review.visit_description}}</li>
-              <!-- end ngRepeat: li in side.listItems track by $index -->
-            </ul>
+            <div >
+              <h4 >{{review.place_name}}</h4>
+              <hr>
+              <ul class="card-text">
+                <!-- ngRepeat: li in side.listItems track by $index -->
+                <li >{{review.visit_date | date: 'mediumDate'}}</li>
+                <!-- end ngRepeat: li in side.listItems track by $index -->
+                <li >{{review.visit_rating}} Stars</li>
+                <!-- end ngRepeat: li in side.listItems track by $index -->
+                <li >{{review.visit_description}}</li>
+                <!-- end ngRepeat: li in side.listItems track by $index -->
+              </ul>
+            </div>
           </div>
-      </div>
-    </a>
-  </li>
-</ul>
-</div>
-</div>
-
-<!-- <figure ng-repeat="side in sides track by $index" style="transform: rotate3d(0, 1, 0, 240deg ) translate3d(0, 0, 14.433756729740649vw)" class="ng-scope">
-  <img ng-src="img/guest.png" src="img/guest.png">
-  <div>
-    <h2 class="ng-binding">Side3</h2>
-    <hr>
-    <ul> -->
-      <!-- ngRepeat: li in side.listItems track by $index -->
-      <!-- <li ng-repeat="li in side.listItems track by $index" class="ng-binding ng-scope">Attribute 1</li> -->
-      <!-- end ngRepeat: li in side.listItems track by $index -->
-      <!-- <li ng-repeat="li in side.listItems track by $index" class="ng-binding ng-scope">Attribute 2</li> -->
-      <!-- end ngRepeat: li in side.listItems track by $index -->
-      <!-- <li ng-repeat="li in side.listItems track by $index" class="ng-binding ng-scope">Attribute 3</li> -->
-      <!-- end ngRepeat: li in side.listItems track by $index -->
-    <!-- </ul>
+        </a>
+      </li>
+    </ul>
   </div>
-</figure> -->
-
-<!-- end ngRepeat: side in sides track by $index -->
-
-<!-- <div ng-repeat="review in carousel.reviewList.list">
-<figure>
-  <img class="card-img-small" ng-src="{{review.image_url}}" alt="Venue Picture"></div>
-  <div>
-
-    <h4>{{review.place_name}}</h4>
-
-    <ul> -->
-    <!-- ngRepeat: li in side.listItems track by $index -->
-    <!-- <li>{{review.visit_date | date: 'mediumDate'}}</li> -->
-    <!-- end ngRepeat: li in side.listItems track by $index -->
-    <!-- <li>{{review.visit_rating}} Stars</li> -->
-    <!-- end ngRepeat: li in side.listItems track by $index -->
-    <!-- <li class="card-text">{{review.visit_description}}</li> -->
-    <!-- end ngRepeat: li in side.listItems track by $index -->
-  <!-- </ul>
 </div>
-</figure>
-</div>
-</carousel> -->
-
-
-
-
-
-
-
-
-<!-- <br />
-  <ul rn-carousel rn-carousel-buffered rn-carousel-index="carouselIndex" rn-carousel-controls rn-carousel-easing="easeInOutSine" rn-carousel-transition="hexagon">
-    <li ng-repeat="user in vm.cohort">
-      <button id="clickModal" data-toggle="modal" data-target="#{{user.firstname}}">
-      <div class="profile"> -->
-        <!-- <div id="user_{{ user.username }}"> -->
-          <!-- <img ng-src="/uploads/{{ user.username }}.jpg" alt="Picture"/> -->
-        <!-- </div> -->
-        <!-- <div class="middle">
-          <p> {{ user.firstname }} {{ user.lastname }}</p>
-        </div>
-      </div>
-      </button>
-    </li>
-  </ul>
-  <br /> -->

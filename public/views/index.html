@@ -33,30 +33,17 @@
   <script src="vendor/angular-carousel.js" charset="utf-8"></script>
   <link href="/css/angular-carousel.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="/css/animate.min.css">
-  <!-- <script src="/controllers/UiController.js"></script> -->
-
 </head>
 <!-- bring in angular app -->
 <body ng-app="ourdateApp">
-
-
   <!-- login controller is on every page -->
   <span ng-controller="LoginController as lc">
-
-      <header>
-        <nav ng-include="'/views/templates/nav.html'"></nav>
-      </header>
-
+    <header>
+      <nav ng-include="'/views/templates/nav.html'"></nav>
+    </header>
     <span ng-show="lc.userIsLoggedIn">
       <main ng-view></main>
     </span>
   </span>
-  <!-- <a id = "goHome" href="#main"> <h1 class="five columns">OurDate</h1></a>
-  <a href="#main"><button class="two columns button">Home</button></a> -->
-  <!-- <a href="#profile"><button class="two columns button">Profile</button></a> -->
-  <!-- <p class="two columns" ng-show="lc.displayLogout">Hi {{lc.username}}! | <a id = "logout" href="#" ng-click="lc.logout()">Logout</a></p> -->
-
-
-
 </body>
 </html>

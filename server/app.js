@@ -6,13 +6,6 @@ var decoder = require('./modules/decoder');
 var privateData = require('./routes/private-data');
 var ourDates = require('./routes/our-dates');
 var cardDetail = require('./routes/card-detail');
-// var admin = require("firebase-admin");
-// var serviceAccount = require("path/to/serviceAccountKey.json");
-
-// admin.initializeApp({
-//   credential: admin.credential.cert(serviceAccount),
-//   databaseURL: "https://ourdate-9f39f.firebaseio.com"
-// });
 
 app.get('/', function(req, res){
   res.sendFile(path.resolve('./public/views/index.html'));

@@ -1,19 +1,19 @@
 <div class="animated zoomInUp">
-<div class="cardview-card">
-<div id="cardviewheader"><h1>{{cvc.placeDetails.list[0].place_name}}</h1></div>
-<hr />
-<div class="cardview-section" ng-repeat="place in cvc.placeDetails.list">
-  <img class="cardview-image" ng-src="{{place.image_url}}" alt="Business image cap">
-  <div="cardview-info">
-    <h2 >Web Ranking: {{place.web_ranking}}</h2>
-    <h2 >Price Range: {{place.price}}</h2>
-    <h3 >Description</h3>
-    <div id="descriptionSection">
-    <p id="cardViewDescription">{{place.description}}</p>
-    <p><a ng-href="#!review-view/{{place.id}}"><button>Check-in</button></a></p>
-    <p><a id="webLink" ng-href="{{place.web_link}}" target="_blank">{{place.web_link}}</a></p>
-  </div>
-  </div>
+  <div class="cardview-card">
+    <div id="cardviewheader"><h1>{{cvc.placeDetails.list[0].place_name}}</h1></div>
+    <hr />
+    <div class="cardview-section" ng-repeat="place in cvc.placeDetails.list">
+      <img class="cardview-image" ng-src="{{place.image_url}}" alt="Business image cap">
+      <div="cardview-info">
+      <h2 >Web Ranking: {{place.web_ranking}}</h2>
+      <h2 >Price Range: {{place.price}}</h2>
+      <h3 >Description</h3>
+      <div id="descriptionSection">
+        <p id="cardViewDescription">{{place.description}}</p>
+        <p><a ng-href="#!review-view/{{place.id}}"><button>Check-in</button></a></p>
+        <p><a id="webLink" ng-href="{{place.web_link}}" target="_blank">{{place.web_link}}</a></p>
+      </div>
+    </div>
   </div>
 </div>
 </div>

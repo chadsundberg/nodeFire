@@ -4,8 +4,6 @@ app.factory('CardDetailFactory', ['$firebaseAuth', '$http','$routeParams', funct
   var reviewDetails = { list: {} };
   var previousVisits = { list: {} };
   var reviewList = { list: {} };
-  // var reviewUpdateDetails = { list: {} };
-  // var reviewToDelete = { list: {} };
   var auth = $firebaseAuth();
   console.log(placeDetails);
 
@@ -121,55 +119,55 @@ app.factory('CardDetailFactory', ['$firebaseAuth', '$http','$routeParams', funct
   function deleteReview(review) {
     console.log('factory getting place:', review);
     // var firebaseUser = auth.$getAuth();
-  var firebaseUser = auth.$getAuth();
+    var firebaseUser = auth.$getAuth();
+    // firebaseUser will be null if not logged in
+    if(firebaseUser) {
+      // This is where we make our call to our server
+      firebaseUser.getToken().then(function(idToken){
+        $http({
+          method: 'DELETE',
+          url: '/cardDetail/reviews/' + review.id,
+          headers: {
+            id_token: idToken
+          },
+          params: {review: review}
+        }).then(function(response) {
+          // console.log(response.data);
+          getReviews($routeParams.placeId);
+        });
+      });
+    } else {
+      console.log('Not logged in or not authorized.');
+      self.secretData = "Log in to search for date activities.";
+    }
+  }
+
+  function getAllReviews() {
+    console.log('factory getting place:');
+    // var firebaseUser = auth.$getAuth();
+    auth.$onAuthStateChanged(function(firebaseUser){
       // firebaseUser will be null if not logged in
       if(firebaseUser) {
         // This is where we make our call to our server
         firebaseUser.getToken().then(function(idToken){
           $http({
-            method: 'DELETE',
-            url: '/cardDetail/reviews/' + review.id,
+            method: 'GET',
+            url: '/cardDetail/reviews/all',
             headers: {
               id_token: idToken
-            },
-            params: {review: review}
+            }
+
           }).then(function(response) {
-            // console.log(response.data);
-            getReviews($routeParams.placeId);
+            console.log(response.data);
+            reviewList.list = response.data;
           });
         });
       } else {
         console.log('Not logged in or not authorized.');
         self.secretData = "Log in to search for date activities.";
       }
-    }
-
-    function getAllReviews() {
-      console.log('factory getting place:');
-      // var firebaseUser = auth.$getAuth();
-      auth.$onAuthStateChanged(function(firebaseUser){
-        // firebaseUser will be null if not logged in
-        if(firebaseUser) {
-          // This is where we make our call to our server
-          firebaseUser.getToken().then(function(idToken){
-            $http({
-              method: 'GET',
-              url: '/cardDetail/reviews/all',
-              headers: {
-                id_token: idToken
-              }
-
-            }).then(function(response) {
-              console.log(response.data);
-              reviewList.list = response.data;
-            });
-          });
-        } else {
-          console.log('Not logged in or not authorized.');
-          self.secretData = "Log in to search for date activities.";
-        }
-      });
-    }
+    });
+  }
 
 
 
@@ -180,7 +178,6 @@ app.factory('CardDetailFactory', ['$firebaseAuth', '$http','$routeParams', funct
     newReview: reviewDetails,
     getReviews: getReviews,
     previousVisitDetails: previousVisits,
-    // reviewToDelete: reviewToDelete,
     editReview: editReview,
     deleteReview: deleteReview,
     getAllReviews: getAllReviews,
