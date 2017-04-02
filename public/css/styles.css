@@ -85,6 +85,7 @@ label.star:before {
   border-radius: 10px;
   box-shadow: 0.6em 0.6em 1.2em darkgray;
   margin-left: 50px;
+  margin-top: 20px;
 }
 
 #menu-board {
@@ -179,6 +180,7 @@ label.star:before {
 
 .card {
   background-image: url("/assets/lightest-paper.jpg");
+  background-size: cover;
   border: 1px solid darkgray;
   border-radius: 10px;
   display: inline-block;
@@ -191,6 +193,7 @@ label.star:before {
 
 .cardview-card {
   background-image: url("/assets/lightest-paper.jpg");
+  background-size: cover;
   left: 0px;
   top: 0px;
   z-index: -1;*/
