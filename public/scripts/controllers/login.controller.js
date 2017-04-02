@@ -10,9 +10,9 @@ app.controller("LoginController", ["$location", "$firebaseAuth", "$http", functi
       self.image = firebaseUser.user.photoURL;
       $location.path('/home-view');
       swal({
-title: 'congrats!',
-text: 'you logged in',
-confirmButtonText: 'Cool'
+title: 'Welcome Back!',
+text: 'You are logged into OurDate',
+confirmButtonText: 'Find Cool Dates'
 })
     }).catch(function(error) {
       console.log("Authentication failed: ", error);
@@ -49,7 +49,7 @@ confirmButtonText: 'Cool'
       console.log('Not logged in or not authorized.');
       self.secretData = "Log in to search for date activities.";
       self.userIsLoggedIn = false;
-      
+
     }
 
   });
@@ -62,9 +62,9 @@ confirmButtonText: 'Cool'
       self.image = '';
       $location.path('/login');
       swal({
-title: 'Thanks for using Ourdate',
-text: 'you logged out',
-confirmButtonText: 'Peace'
+title: 'Thanks for using OurDate',
+text: 'You are logged out.',
+confirmButtonText: 'Peace out'
 })
     });
   };

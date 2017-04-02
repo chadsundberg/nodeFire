@@ -19,16 +19,32 @@ function($routeParams, CardDetailFactory) {
     self.newReview.id = $routeParams.placeId;
     CardDetailFactory.addNewReview(self.newReview);
     self.newReview = {};
+    swal({
+title: 'Thanks for posting a new review!',
+text: 'Your review is now in the Date Carousel',
+confirmButtonText: 'Ok'
+});
   }
 
   self.editReview = function(review) {
         CardDetailFactory.editReview(review);
         console.log(review);
+        swal({
+    title: 'Success!',
+    text: 'Your changes have been saved.',
+    confirmButtonText: 'Ok'
+    });
       }
 
   self.deleteReview = function(review) {
         CardDetailFactory.deleteReview(review);
         console.log(review);
+        swal({
+    title: 'Success!',
+    text: 'Your review has been deleted.',
+    confirmButtonText: 'Ok'
+    });
+
           }
 
 }]);

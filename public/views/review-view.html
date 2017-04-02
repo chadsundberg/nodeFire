@@ -1,5 +1,5 @@
 <div class="card">
-  <div id="reviewheader">
+  <div class="animated bounceInDown" id="reviewheader">
     <form name="reviewForm">
       <h1>Review</h1>
       <!-- <input type="text" data-date-format="yy-mm-dd" id="eventDateTime" ng-model="rc.newReview.visit_date" placeholder="YYYY/MM/DD"></input> -->
@@ -21,7 +21,6 @@
         <img class="review-card-img-top" ng-src="{{place.image_url}}" alt="Business image cap">
         <h2 class="review-cardview-info">Web Ranking: {{place.web_ranking}}</h2>
         <h2 class="review-cardview-info">Price Range: {{place.price}}</h2>
-
         <p><button ng-click="rc.addNewReview()">Post this review</button></p>
     </form>
     <div class="review-cardview-section">
@@ -31,7 +30,7 @@
     </div>
   </div>
   </div>
-  <div id="reviewfooter">
+  <div class="animated bounceInUp" id="reviewfooter">
     <h2 id="fancyReviewHeading">Previous Visits</h2>
     <hr />
     <div ng-repeat="review in rc.previousVisits.list">
