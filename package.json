@@ -16,8 +16,8 @@
     "sweetalert2": "^6.4.4"
   },
   "scripts": {
-    "start": "node server/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "server/app.js",
+    "test": "nodemon server/app.js"
   },
   "author": "Luke Schlangen",
   "license": "MIT",
